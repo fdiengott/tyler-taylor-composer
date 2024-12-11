@@ -1,0 +1,79 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+// import PageHeader from "@/components/PageHeader.astro";
+// import config from "@/config/config.json";
+// import Base from "@/layouts/Base.astro";
+// import { getEntry } from "astro:content";
+
+const entry = await getEntry('contact', 'index');
+const contact = entry?.data;
+// const page_data = {
+//     ...contact,
+//     content: contact.body
+// };
+---
+
+<style>
+    .form-control,
+    .form-select {
+        height: 60px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .form-group {
+        display: grid;
+    }
+
+    .row {
+        justify-content: center;
+    }
+
+    input,
+    textarea {
+        border: 1px solid #ccc;
+    }
+</style>
+
+<BaseLayout title={contact?.title} description={contact?.description}>
+    <section class="page-hero pb-6 pt-16">
+        <!-- <div class="container"><PageHeader page_data={page_data} /></div> -->
+        <h1>{contact?.title}</h1>
+    </section>
+
+    <section class="section pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="md:col-6 md:order-1">
+                    <form data-netlify="true" name="contact" method="POST">
+                        <div class="form-group mb-5">
+                            <label class="form-label" for="name">Full Name</label>
+                            <input class="form-control" type="text" id="name" placeholder="Your Full Name" />
+                        </div>
+                        <div class="form-group mb-5">
+                            <label class="form-label" for="eamil">Email Address</label>
+                            <input class="form-control" type="text" id="email" placeholder="Your Email Address" />
+                        </div>
+                        <!-- <div class="form-group mb-5"> -->
+                        <!--   <label class="form-label" for="reason">Reason/Purpose</label> -->
+                        <!--   <select name="reason" id="reason" class="form-select" required> -->
+                        <!--     <option value="">Select reason/purpose</option> -->
+                        <!--     <option value="investment plane">Investment Plan</option> -->
+                        <!--     <option value="investment plane-2">Investment Plan 2</option> -->
+                        <!--     <option value="investment plane-3">Investment Plan 3</option> -->
+                        <!--   </select> -->
+                        <!-- </div> -->
+                        <div class="form-group mb-5">
+                            <label class="form-label" for="message">Message Here</label>
+                            <textarea class="form-control h-[150px]" id="message" cols="30" rows="10"></textarea>
+                        </div>
+                        <input class="btn btn-primary block w-full" type="submit" value="Send Message" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

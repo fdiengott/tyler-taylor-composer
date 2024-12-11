@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const about = await getEntry('about', 'index');
+const { Content } = await render(about);
+---
+
+<style is:global>
+    .about :is(p, img) {
+        margin-bottom: 1.5rem;
+    }
+</style>
+
+<BaseLayout title={about.data.title} description={about.data.description}>
+    <div class="about">
+        <Image src={about.data.image} alt="About" width={750} height={500} />
+        <Content />
+    </div>
+</BaseLayout>

@@ -1,0 +1,50 @@
+---
+import { getCollection, render } from 'astro:content';
+import { slugify } from '../../utils/common-utils';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+    const works = await getCollection('works');
+
+    return works.map((work) => {
+        return {
+            params: { single: slugify(work.data.title) },
+            props: { work },
+        };
+    });
+}
+
+interface Props {
+    work: {
+        data: {
+            title: string;
+            premiere: string;
+            length: number;
+            year: number;
+            commissioner: string;
+            ensemble: string;
+            video: string;
+            audio: string;
+        };
+    };
+}
+
+const { work } = Astro.props;
+const { title, premiere, length, year, commissioner, ensemble, video, audio } = work.data;
+const { Content } = await render(work);
+---
+
+<BaseLayout title={title}>
+    <div>
+        <div>title: {title}</div>
+        <div>premiere: {premiere}</div>
+        <div>length: {length}</div>
+        <div>year: {year}</div>
+        <div>commissioner: {commissioner}</div>
+        <div>ensemble: {ensemble}</div>
+        <div>video: {video}</div>
+        <div>audio: {audio}</div>
+    </div>
+
+    <Content />
+</BaseLayout>

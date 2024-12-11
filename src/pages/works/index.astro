@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { slugify } from '../../utils/common-utils';
+
+const works = await getCollection('works');
+
+console.log(works);
+---
+
+<BaseLayout title="Works" description="My works">
+    <h1>Works</h1>
+    <ul>
+        {
+            works.map((work) => (
+                <li>
+                    <a href={`/works/${slugify(work.data.title)}`}>{work.data.title}</a>
+                </li>
+            ))
+        }
+    </ul>
+</BaseLayout>

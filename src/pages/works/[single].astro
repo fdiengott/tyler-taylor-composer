@@ -4,28 +4,18 @@ import { slugify } from '../../utils/common-utils';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Youtube from '@/components/YoutubeEmbed';
 import SoundCloud from '@/components/SoundCloudEmbed';
-
-export interface Work {
-    title: string;
-    premiere: string;
-    length: number;
-    year: number;
-    commissioner: string;
-    ensemble: string;
-    video: string;
-    audio: string;
-}
+import type { WorkType } from '@/content.config';
 
 interface Props {
     work: {
-        data: Work;
+        data: WorkType;
     };
 }
 
 export async function getStaticPaths() {
     const works = await getCollection('works');
 
-    return works.map((work: { data: Work }) => {
+    return works.map((work: { data: WorkType }) => {
         return {
             params: { single: slugify(work.data.title) },
             props: { work },
@@ -34,7 +24,7 @@ export async function getStaticPaths() {
 }
 
 const { work } = Astro.props;
-const { title, premiere, length, year, commissioner, ensemble, video, audio } = work.data;
+const { audio, category, commissioner, ensemble, length, premiere, title, video, year } = work.data;
 const { Content } = await render(work as any);
 ---
 
@@ -46,6 +36,7 @@ const { Content } = await render(work as any);
         <div>year: {year}</div>
         <div>commissioner: {commissioner}</div>
         <div>ensemble: {ensemble}</div>
+        <div>category: {category}</div>
         <Youtube client:load url={video} title={title} />
         <SoundCloud client:visible url={audio} />
     </div>

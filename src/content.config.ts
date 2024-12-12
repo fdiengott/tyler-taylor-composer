@@ -63,18 +63,23 @@ const about = defineCollection({
     }),
 });
 
+const workSchema = z.object({
+    title: z.string(),
+    category: z.string(),
+    premiere: z.string().optional(),
+    length: z.number(),
+    year: z.number(),
+    commissioner: z.string().optional(),
+    ensemble: z.string(),
+    video: z.string().optional(),
+    audio: z.string().optional(),
+});
+
 const works = defineCollection({
     loader: glob({ pattern: '**/*.md', base: 'src/content/works' }),
-    schema: z.object({
-        title: z.string(),
-        premiere: z.string().optional(),
-        length: z.number(),
-        year: z.number(),
-        commissioner: z.string().optional(),
-        ensemble: z.string(),
-        video: z.string().optional(),
-        audio: z.string().optional(),
-    }),
+    schema: workSchema,
 });
+
+export type WorkType = z.infer<typeof workSchema>;
 
 export const collections = { blog, pages, projects, contact, about, works };

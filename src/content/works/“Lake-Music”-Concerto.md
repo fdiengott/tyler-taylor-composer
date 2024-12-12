@@ -1,5 +1,5 @@
 ---
-title: Out of Dust
+title: “Lake Music” Concerto
 premiere: TODO
 category: chamber
 length: 8

@@ -1,5 +1,5 @@
 ---
-title: Out of Dust
+title: Modus operandi
 premiere: TODO
 category: chamber
 length: 8

@@ -1,5 +1,5 @@
 ---
-title: Out of Dust
+title: Dispositions
 premiere: TODO
 category: chamber
 length: 8

@@ -1,5 +1,5 @@
 ---
-title: Out of Dust
+title: Quartet
 premiere: TODO
 category: chamber
 length: 8

@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Youtube from '@/components/YoutubeEmbed';
 import SoundCloud from '@/components/SoundCloudEmbed';
 import type { WorkType } from '@/content.config';
+import { removeTemplates } from '@/utils/data-utils';
 
 interface Props {
     work: {
@@ -14,8 +15,9 @@ interface Props {
 
 export async function getStaticPaths() {
     const works = await getCollection('works');
+    const cleanWorks = removeTemplates(works);
 
-    return works.map((work: { data: WorkType }) => {
+    return cleanWorks.map((work: { data: WorkType }) => {
         return {
             params: { single: slugify(work.data.title) },
             props: { work },
@@ -37,8 +39,8 @@ const { Content } = await render(work as any);
         <div>commissioner: {commissioner}</div>
         <div>ensemble: {ensemble}</div>
         <div>category: {category}</div>
-        <Youtube client:load url={video} title={title} />
-        <SoundCloud client:visible url={audio} />
+        {video && <Youtube client:load url={video} title={title} />}
+        {audio && <SoundCloud client:visible url={audio} />}
     </div>
 
     <Content />

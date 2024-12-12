@@ -1,5 +1,5 @@
 ---
-title: Out of Dust
+title: Permissions
 premiere: TODO
 category: chamber
 length: 8

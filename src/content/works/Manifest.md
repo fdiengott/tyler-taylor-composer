@@ -1,5 +1,5 @@
 ---
-title: Out of Dust
+title: Manifest
 premiere: TODO
 category: chamber
 length: 8

@@ -15,6 +15,7 @@
       "@/content.config": ["./src/content.config.ts"],
       "@/components/*": ["./src/components/*"],
       "@/layouts/*": ["./src/layouts/*"],
+      "@/utils/*": ["./src/utils/*"],
       "@/*": ["./src/*"]
     }
   },

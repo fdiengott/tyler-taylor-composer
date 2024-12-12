@@ -1,5 +1,5 @@
 ---
-title: Out of Dust
+title: Liberation compromise for quintet
 premiere: TODO
 category: chamber
 length: 8

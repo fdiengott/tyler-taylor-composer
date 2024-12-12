@@ -64,6 +64,7 @@ const about = defineCollection({
 });
 
 const workSchema = z.object({
+    template: z.boolean().default(false),
     title: z.string(),
     category: z.string(),
     premiere: z.string().optional(),

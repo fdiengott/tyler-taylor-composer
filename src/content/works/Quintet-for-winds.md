@@ -1,5 +1,5 @@
 ---
-title: Out of Dust
+title: Quintet for wind
 premiere: TODO
 category: chamber
 length: 8

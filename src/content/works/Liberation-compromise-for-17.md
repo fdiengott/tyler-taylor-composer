@@ -1,5 +1,5 @@
 ---
-title: Out of Dust
+title: Liberation compromise for 17
 premiere: TODO
 category: chamber
 length: 8

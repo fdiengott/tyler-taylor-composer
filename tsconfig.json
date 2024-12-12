@@ -12,6 +12,7 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "paths": {
+      "@/components/*": ["./src/components/*"],
       "@/layouts/*": ["./src/layouts/*"],
       "@/*": ["./src/*"]
     }
@@ -19,7 +20,9 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "**/*.astro",
+    "**/*.astro", 
+    "src/components/SoundCloudEmbed.tsx",
+    "src/components/YoutubeEmbed.tsx",
   ],
   "exclude": ["node_modules"]
 }

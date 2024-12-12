@@ -12,14 +12,19 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "paths": {
+      "@/content.config": ["./src/content.config.ts"],
+      "@/components/*": ["./src/components/*"],
       "@/layouts/*": ["./src/layouts/*"],
+      "@/utils/*": ["./src/utils/*"],
       "@/*": ["./src/*"]
     }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "**/*.astro",
+    "**/*.astro", 
+    "src/components/SoundCloudEmbed.tsx",
+    "src/components/YoutubeEmbed.tsx",
   ],
   "exclude": ["node_modules"]
 }

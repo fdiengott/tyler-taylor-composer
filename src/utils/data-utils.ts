@@ -1,5 +1,6 @@
 import { type CollectionEntry } from 'astro:content';
 import { slugify } from './common-utils';
+import type { WorkType } from '@/content.config';
 
 export function sortItemsByDateDesc(itemA: CollectionEntry<'blog' | 'projects'>, itemB: CollectionEntry<'blog' | 'projects'>) {
     return new Date(itemB.data.publishDate).getTime() - new Date(itemA.data.publishDate).getTime();
@@ -11,7 +12,7 @@ export function getAllTags(posts: CollectionEntry<'blog'>[]) {
         .map((tag) => {
             return {
                 name: tag,
-                slug: slugify(tag)
+                slug: slugify(tag),
             };
         })
         .filter((obj, pos, arr) => {
@@ -23,3 +24,7 @@ export function getPostsByTag(posts: CollectionEntry<'blog'>[], tagSlug: string)
     const filteredPosts: CollectionEntry<'blog'>[] = posts.filter((post) => (post.data.tags || []).map((tag) => slugify(tag)).includes(tagSlug));
     return filteredPosts;
 }
+
+export const removeTemplates = (collection: { id: string }[]) => {
+    return collection.filter((item) => !item.id.startsWith('-'));
+};

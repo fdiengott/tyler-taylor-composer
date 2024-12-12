@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from 'astro:content';
+import { slugify } from '../../utils/common-utils';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Youtube from '@/components/YoutubeEmbed';
+import SoundCloud from '@/components/SoundCloudEmbed';
+import type { WorkType } from '@/content.config';
+import { removeTemplates } from '@/utils/data-utils';
+
+interface Props {
+    work: {
+        data: WorkType;
+    };
+}
+
+export async function getStaticPaths() {
+    const works = await getCollection('works');
+    const cleanWorks = removeTemplates(works);
+
+    return cleanWorks.map((work: { data: WorkType }) => {
+        return {
+            params: { single: slugify(work.data.title) },
+            props: { work },
+        };
+    });
+}
+
+const { work } = Astro.props;
+const { audio, category, commissioner, ensemble, length, premiere, title, video, year } = work.data;
+const { Content } = await render(work as any);
+---
+
+<BaseLayout title={title}>
+    <div>
+        <div>title: {title}</div>
+        <div>premiere: {premiere}</div>
+        <div>length: {length}</div>
+        <div>year: {year}</div>
+        <div>commissioner: {commissioner}</div>
+        <div>ensemble: {ensemble}</div>
+        <div>category: {category}</div>
+        {video && <Youtube client:load url={video} title={title} />}
+        {audio && <SoundCloud client:visible url={audio} />}
+    </div>
+
+    <Content />
+</BaseLayout>

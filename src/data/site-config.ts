@@ -43,84 +43,78 @@ const siteConfig: SiteConfig = {
     description: 'Tyler Taylor, composer',
     image: {
         src: '/dante-preview.jpg',
-        alt: ''
+        alt: '',
     },
     headerNavLinks: [
         {
             text: 'Home',
-            href: '/'
+            href: '/',
         },
         {
             text: 'About',
-            href: '/about'
+            href: '/about',
         },
         {
             text: 'Works',
-            href: '/works'
+            href: '/works',
         },
         {
             text: 'News',
-            href: '/news'
+            href: '/news',
         },
         {
             text: 'Gallery',
-            href: '/gallery'
+            href: '/gallery',
         },
         {
             text: 'Press',
-            href: '/press'
+            href: '/press',
         },
         {
             text: 'Blog',
-            href: '/blog'
+            href: '/blog',
         },
         {
             text: 'Contact',
-            href: '/contact'
-        }
+            href: '/contact',
+        },
     ],
     footerNavLinks: [
         {
             text: 'About',
-            href: '/about'
+            href: '/about',
         },
         {
             text: 'Contact',
-            href: '/contact'
+            href: '/contact',
         },
         {
             text: 'Terms',
-            href: '/terms'
-        }
+            href: '/terms',
+        },
     ],
     socialLinks: [
         {
             text: 'Instagram',
-            href: 'https://instagram.com/'
-        }
+            href: 'https://instagram.com/',
+        },
     ],
     hero: {
         title: 'Tyler Taylor',
-        text: '',
+        text: 'A short phrase maybe?',
         image: {
             src: '/hero.jpeg',
             //  TODO:
-            alt: 'Tyler Taylor'
+            alt: 'Tyler Taylor',
         },
-        actions: [
-            {
-                text: 'Get in Touch',
-                href: '/contact'
-            }
-        ]
     },
     subscribe: {
         title: 'Subscribe to Dante Newsletter',
         text: 'One update per week. All the latest posts directly in your inbox.',
-        formUrl: '#'
+        formUrl: '#',
     },
     postsPerPage: 8,
-    projectsPerPage: 8
+    projectsPerPage: 8,
 };
 
 export default siteConfig;

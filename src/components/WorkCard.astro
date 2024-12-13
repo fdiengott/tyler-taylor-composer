@@ -1,0 +1,57 @@
+---
+interface Props {
+    title: string;
+    year: number;
+    length: number;
+    slug: string;
+    ensemble: string;
+}
+
+const { title, year, length, slug, ensemble } = Astro.props;
+---
+
+<li>
+    <div class="year">{year}</div>
+    <div class="grid">
+        <a class="title" href={slug}>{title}</a>
+        <div class="length">{length}'</div>
+        <div class="ensemble">
+            {ensemble}
+            <span class="tiny-text">if you want ensemble noted here</span>
+        </div>
+    </div>
+</li>
+
+<style>
+    .tiny-text {
+        font-size: 0.75rem;
+    }
+    li {
+        display: flex;
+        align-items: baseline;
+        gap: 2rem;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-areas:
+            'title length'
+            'ensemble ensemble';
+        align-items: center;
+        gap: 0.25rem 1rem;
+    }
+
+    .title {
+        grid-area: title;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .length {
+        grid-area: length;
+    }
+
+    .ensemble {
+        grid-area: ensemble;
+    }
+</style>

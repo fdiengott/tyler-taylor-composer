@@ -1,0 +1,17 @@
+---
+import { slugify } from '@/utils/common-utils';
+import Youtube from '@/components/YoutubeEmbed';
+
+const { work } = Astro.props;
+
+const { title, category, premiere, date, length, year, commissioner, ensemble, video, audio } = work.data;
+
+const slug = `/works/${slugify(title)}`;
+---
+
+<div>
+    <h2><a href={slug}>{title} for {ensemble}</a></h2>
+    <div>premiere: {premiere}</div>
+    <div>year: {year}</div>
+    {video && <Youtube client:load url={video} title={title} />}
+</div>

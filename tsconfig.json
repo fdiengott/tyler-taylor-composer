@@ -12,6 +12,7 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "paths": {
+      "@/config/*": ["./src/config/*"],
       "@/content.config": ["./src/content.config.ts"],
       "@/components/*": ["./src/components/*"],
       "@/layouts/*": ["./src/layouts/*"],

@@ -1,0 +1,218 @@
+---
+const { source, className } = Astro.props;
+
+import {
+    IoCall,
+    IoGlobeOutline,
+    IoLocation,
+    IoLogoFacebook,
+    IoLogoFoursquare,
+    IoLogoInstagram,
+    IoLogoLinkedin,
+    IoLogoMastodon,
+    IoLogoMedium,
+    IoLogoPinterest,
+    IoLogoReddit,
+    IoLogoSoundcloud,
+    IoLogoTiktok,
+    IoLogoTumblr,
+    IoLogoTwitter,
+    IoLogoVimeo,
+    IoLogoYoutube,
+    IoMail,
+} from 'react-icons/io5';
+
+const {
+    address,
+    email,
+    facebook,
+    foursquare,
+    instagram,
+    linkedin,
+    mastodon,
+    medium,
+    phone,
+    pinterest,
+    reddit,
+    soundcloud,
+    tiktok,
+    tumblr,
+    twitter,
+    vimeo,
+    website,
+    youtube,
+} = source;
+---
+
+<ul class={'social-links ' + className}>
+    {
+        facebook && (
+            <li class="inline-block">
+                <a aria-label="facebook" href={facebook} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoFacebook />
+                </a>
+            </li>
+        )
+    }
+    {
+        twitter && (
+            <li class="inline-block">
+                <a aria-label="twitter" href={twitter} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoTwitter />
+                </a>
+            </li>
+        )
+    }
+    {
+        mastodon && (
+            <li class="inline-block">
+                <a aria-label="mastodon" href={mastodon} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoMastodon />
+                </a>
+            </li>
+        )
+    }
+    {
+        instagram && (
+            <li class="inline-block">
+                <a aria-label="instagram" href={instagram} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoInstagram />
+                </a>
+            </li>
+        )
+    }
+    {
+        youtube && (
+            <li class="inline-block">
+                <a aria-label="youtube" href={youtube} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoYoutube />
+                </a>
+            </li>
+        )
+    }
+    {
+        linkedin && (
+            <li class="inline-block">
+                <a aria-label="linkedin" href={linkedin} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoLinkedin />
+                </a>
+            </li>
+        )
+    }
+    {
+        medium && (
+            <li class="inline-block">
+                <a aria-label="medium" href={medium} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoMedium />
+                </a>
+            </li>
+        )
+    }
+    {
+        pinterest && (
+            <li class="inline-block">
+                <a aria-label="pinterest" href={pinterest} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoPinterest />
+                </a>
+            </li>
+        )
+    }
+    {
+        soundcloud && (
+            <li class="inline-block">
+                <a aria-label="soundcloud" href={soundcloud} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoSoundcloud />
+                </a>
+            </li>
+        )
+    }
+    {
+        tumblr && (
+            <li class="inline-block">
+                <a aria-label="tumblr" href={tumblr} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoTumblr />
+                </a>
+            </li>
+        )
+    }
+    {
+        reddit && (
+            <li class="inline-block">
+                <a aria-label="reddit" href={reddit} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoReddit />
+                </a>
+            </li>
+        )
+    }
+    {
+        vimeo && (
+            <li class="inline-block">
+                <a aria-label="vimeo" href={vimeo} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoVimeo />
+                </a>
+            </li>
+        )
+    }
+    {
+        tiktok && (
+            <li class="inline-block">
+                <a aria-label="tiktok" href={tiktok} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoTiktok />
+                </a>
+            </li>
+        )
+    }
+    {
+        foursquare && (
+            <li class="inline-block">
+                <a aria-label="foursquare" href={foursquare} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoFoursquare />
+                </a>
+            </li>
+        )
+    }
+    {
+        website && (
+            <li class="inline-block">
+                <a aria-label="website" href={website} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoGlobeOutline />
+                </a>
+            </li>
+        )
+    }
+    {
+        email && (
+            <li class="inline-block">
+                <a aria-label="email" href={`mailto:${email}`}>
+                    <IoMail />
+                </a>
+            </li>
+        )
+    }
+    {
+        phone && (
+            <li class="inline-block">
+                <a aria-label="telephone" href={`tel:${phone}`}>
+                    <IoCall />
+                </a>
+            </li>
+        )
+    }
+    {
+        address && (
+            <li class="inline-block">
+                <a aria-label="location" href={address} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLocation />
+                </a>
+            </li>
+        )
+    }
+</ul>
+
+<style>
+    .social-links {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+</style>

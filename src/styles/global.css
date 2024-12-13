@@ -5,15 +5,19 @@
 @layer base {
     :root {
         --color-text-main: 23 23 23; /* #171717 */
+        --color-text-secondary: 242 241 236; /* #F2F1EC */
         --color-bg-main: 242 241 236; /* #F2F1EC */
         --color-bg-muted: 234 233 225; /* #EAE9E1 */
         --color-border-main: 23 23 23; /* #171717 */
+        --color-accent-main: 26 202 219; /* #000000 */
     }
     html.dark {
         --color-text-main: 242 241 236; /* #F2F1EC */
+        --color-text-secondary: 23 23 23; /* #171717 */
         --color-bg-main: 23 23 23; /* #171717 */
         --color-bg-muted: 36 36 36; /* #242424 */
         --color-border-main: 242 241 236; /* #F2F1EC */
+        --color-accent-main: 135 221 245; /* #000000 */
     }
 
     /* Cyan */
@@ -47,4 +51,61 @@
         --color-border-main: 243 239 230;
     }
     */
+
+    :root {
+        --fs-200: clamp(0.7rem, calc(0.81rem + -0.13vw), 0.78rem);
+        --fs-300: clamp(0.94rem, calc(0.94rem + 0vw), 0.94rem);
+        --fs-350: clamp(1rem, calc(1rem + 0.12vw), 1.1rem);
+        --fs-400: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+        --fs-500: clamp(1.35rem, calc(1.24rem + 0.55vw), 1.67rem);
+        --fs-600: clamp(1.62rem, calc(1.41rem + 1.05vw), 2.22rem);
+        --fs-700: clamp(1.94rem, calc(1.59rem + 1.77vw), 2.96rem);
+        --fs-800: clamp(2.33rem, calc(1.77rem + 2.81vw), 3.95rem);
+        --fs-900: clamp(2.8rem, calc(1.94rem + 4.28vw), 5.26rem);
+    }
+
+    a {
+        color: rgb(var(--color-accent-main));
+        text-decoration: underline;
+
+        &:hover {
+            color: rgb(var(--color-accent-main) / 0.8);
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-block-end: 5em;
+    }
+
+    h1 {
+        font-size: var(--fs-800);
+        font-weight: 800;
+    }
+
+    h2 {
+        font-size: var(--fs-600);
+        font-weight: 700;
+    }
+
+    h3 {
+        font-weight: 600;
+    }
+
+    h4 {
+        font-weight: 500;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        line-height: 1.4;
+        margin-block-end: 0.25em;
+        text-wrap: balance;
+    }
 }

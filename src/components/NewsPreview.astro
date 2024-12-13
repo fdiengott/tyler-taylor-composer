@@ -1,0 +1,19 @@
+---
+import { getEntry, render } from 'astro:content';
+
+const { id } = Astro.props;
+
+const news = await getEntry('news', id);
+const { linkUrl, title, date, image } = news.data;
+
+const { Content } = await render(news);
+---
+
+<article class="news-preview">
+    <a class="link" href={linkUrl}>
+        <h2>{title}</h2>
+    </a>
+    <p>{date.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: '2-digit' })}</p>
+    <!-- <img src={image} alt={title} /> -->
+    <Content />
+</article>

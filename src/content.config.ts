@@ -91,6 +91,16 @@ const press = defineCollection({
     }),
 });
 
+const news = defineCollection({
+    loader: glob({ pattern: '**/*.md', base: 'src/content/news' }),
+    schema: z.object({
+        title: z.string(),
+        date: z.coerce.date(),
+        image: z.string().optional(),
+        linkUrl: z.string(),
+    }),
+});
+
 export type WorkType = z.infer<typeof workSchema>;
 
-export const collections = { blog, pages, projects, contact, about, works, press };
+export const collections = { blog, pages, projects, contact, about, works, press, news };

@@ -68,6 +68,7 @@ const workSchema = z.object({
     title: z.string(),
     category: z.string(),
     premiere: z.string().optional(),
+    date: z.string().optional(),
     length: z.number(),
     year: z.number(),
     commissioner: z.string().optional(),
@@ -81,6 +82,15 @@ const works = defineCollection({
     schema: workSchema,
 });
 
+const press = defineCollection({
+    loader: glob({ pattern: '**/*.md', base: 'src/content/press' }),
+    schema: z.object({
+        linkText: z.string(),
+        linkUrl: z.string(),
+        publication: z.string(),
+    }),
+});
+
 export type WorkType = z.infer<typeof workSchema>;
 
-export const collections = { blog, pages, projects, contact, about, works };
+export const collections = { blog, pages, projects, contact, about, works, press };

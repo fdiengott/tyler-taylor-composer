@@ -26,22 +26,60 @@ export async function getStaticPaths() {
 }
 
 const { work } = Astro.props;
-const { audio, category, commissioner, ensemble, length, premiere, title, video, year } = work.data;
+const { audio, commissioner, ensemble, length, premiere, title, video, year } = work.data;
 const { Content } = await render(work as any);
 ---
 
 <BaseLayout title={title}>
-    <div>
-        <div>title: {title}</div>
-        <div>premiere: {premiere}</div>
-        <div>length: {length}</div>
-        <div>year: {year}</div>
-        <div>commissioner: {commissioner}</div>
-        <div>ensemble: {ensemble}</div>
-        <div>category: {category}</div>
-        {video && <Youtube client:load url={video} title={title} />}
-        {audio && <SoundCloud client:visible url={audio} />}
-    </div>
+    <h1 class="title">{title}</h1>
+    <div class="page-wrapper">
+        <section>
+            <div class="grid">
+                <div><b>ensemble:</b> {ensemble}</div>
+                <div><b>premiere:</b> {premiere}</div>
+                <div><b>length:</b> {length} minutes</div>
+                <div><b>year:</b> {year}</div>
+                <div><b>commissioned by:</b> {commissioner}</div>
+            </div>
 
-    <Content />
+            <div class="content-wrapper"><Content /></div>
+        </section>
+
+        <aside>
+            {video && <Youtube client:load url={video} title={title} width="100%" style={{ maxWidth: '100vw', marginInline: 'auto' }} />}
+            {audio && <SoundCloud client:visible url={audio} width="100%" style={{ maxWidth: '100vw', marginInline: 'auto' }} />}
+        </aside>
+    </div>
 </BaseLayout>
+
+<style>
+    .page-wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2rem;
+
+        & > * {
+            flex: 1 1 20rem;
+        }
+
+        & > section {
+            min-width: 20rem;
+        }
+    }
+    .grid {
+        display: grid;
+        gap: 0.25rem;
+    }
+
+    .content-wrapper {
+        margin-block: 2rem;
+    }
+
+    aside {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+</style>

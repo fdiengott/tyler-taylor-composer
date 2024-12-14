@@ -40,6 +40,10 @@ const worksByCategory = cleanWorks.reduce<Record<string, WorkType[]>>((acc, work
 </BaseLayout>
 
 <style>
+    h1 {
+        margin-block-end: 3rem;
+    }
+
     .category-list {
         display: grid;
         gap: 6rem;
@@ -47,7 +51,7 @@ const worksByCategory = cleanWorks.reduce<Record<string, WorkType[]>>((acc, work
 
     .works-list {
         display: grid;
-        gap: 4rem;
+        gap: 2rem;
     }
 
     .category-title {

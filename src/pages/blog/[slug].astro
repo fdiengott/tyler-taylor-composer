@@ -5,20 +5,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import PostPreview from '../../components/PostPreview.astro';
-import Subscribe from '../../components/Subscribe.astro';
-import { sortItemsByDateDesc } from '../../utils/data-utils';
+import { removeTemplates, sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 
 export async function getStaticPaths() {
-    const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
+    const posts = removeTemplates(await getCollection('blog')).sort(sortItemsByDateDesc);
     const postCount = posts.length;
     return posts.map((post, index) => ({
         params: { slug: post.id },
         props: {
             post,
             prevPost: index + 1 !== postCount ? posts[index + 1] : null,
-            nextPost: index !== 0 ? posts[index - 1] : null
-        }
+            nextPost: index !== 0 ? posts[index - 1] : null,
+        },
     }));
 }
 
@@ -75,7 +74,6 @@ const { Content } = await render(post);
             </div>
         )
     }
-    <Subscribe class="my-16 sm:my-24" />
 </BaseLayout>
 
 <script>

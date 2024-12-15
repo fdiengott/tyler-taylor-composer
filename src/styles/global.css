@@ -3,54 +3,23 @@
 @tailwind utilities;
 
 @layer base {
+    /*  INFO: all colors are in HSL */
     :root {
-        --color-text-main: 23 23 23; /* #171717 */
-        --color-text-secondary: 242 241 236; /* #F2F1EC */
-        --color-bg-main: 242 241 236; /* #F2F1EC */
-        --color-bg-muted: 234 233 225; /* #EAE9E1 */
-        --color-border-main: 23 23 23; /* #171717 */
-        --color-accent-main: 26 202 219; /* #000000 */
+        --color-text-primary: 0 0 9;
+        --color-text-secondary: 50 19 94;
+        --color-bg-primary: 50 19 94;
+        --color-bg-muted: 53 18 90;
+        --color-border-primary: 0 0 9;
+        --color-accent-primary: 337 66 43;
     }
     html.dark {
-        --color-text-main: 242 241 236; /* #F2F1EC */
-        --color-text-secondary: 23 23 23; /* #171717 */
-        --color-bg-main: 23 23 23; /* #171717 */
-        --color-bg-muted: 36 36 36; /* #242424 */
-        --color-border-main: 242 241 236; /* #F2F1EC */
-        --color-accent-main: 135 221 245; /* #000000 */
+        --color-text-primary: 50 19 94;
+        --color-text-secondary: 0 0 9;
+        --color-bg-primary: 0 0 9;
+        --color-bg-muted: 0 0 14;
+        --color-border-primary: 50 19 94;
+        --color-accent-primary: 337 66 58;
     }
-
-    /* Cyan */
-    /*
-    :root {
-        --color-text-main: 22 42 43;
-        --color-bg-main: 214 224 226;
-        --color-bg-muted: 204 216 219;
-        --color-border-main: 22 42 43;
-    }
-    html.dark {
-        --color-text-main: 214 224 226;
-        --color-bg-main: 22 42 43;
-        --color-bg-muted: 28 53 55;
-        --color-border-main: 214 224 226;
-    }
-    */
-
-    /* Green */
-    /*
-    :root {
-        --color-text-main: 58 66 56;
-        --color-bg-main: 243 239 230;
-        --color-bg-muted: 238 233 220;
-        --color-border-main: 58 66 56;
-    }
-    html.dark {
-        --color-text-main: 243 239 230;
-        --color-bg-main: 94 108 91;
-        --color-bg-muted: 89 103 86;
-        --color-border-main: 243 239 230;
-    }
-    */
 
     :root {
         --fs-200: clamp(0.7rem, calc(0.81rem + -0.13vw), 0.78rem);
@@ -65,11 +34,11 @@
     }
 
     a {
-        color: rgb(var(--color-accent-main));
+        color: hsl(var(--color-accent-primary));
         text-decoration: underline;
 
         &:hover {
-            color: rgb(var(--color-accent-main) / 0.8);
+            color: hsl(var(--color-accent-primary) / 0.8);
         }
     }
 
@@ -88,7 +57,7 @@
     }
 
     h2 {
-        font-size: var(--fs-600);
+        font-size: var(--fs-700);
         font-weight: 700;
     }
 
@@ -107,5 +76,9 @@
         line-height: 1.4;
         margin-block-end: 0.25em;
         text-wrap: balance;
+    }
+
+    ::selection {
+        background-color: hsl(var(--color-accent-primary) / 0.2);
     }
 }

@@ -2,56 +2,43 @@
 interface Props {
     title: string;
     year: number;
-    length: number;
     slug: string;
     ensemble: string;
 }
 
-const { title, year, length, slug, ensemble } = Astro.props;
+const { title, year, slug, ensemble } = Astro.props;
 ---
 
 <li>
-    <div class="year">{year}</div>
-    <div class="grid">
-        <a class="title" href={slug}>{title}</a>
-        <div class="length">{length}'</div>
-        <div class="ensemble">
-            {ensemble}
-            <span class="tiny-text">if you want ensemble noted here</span>
-        </div>
-    </div>
+    <a class="title" href={slug}>{title}</a>
+    <span class="for">for</span>
+    <div class="ensemble">{ensemble}</div>
+    <div class="year">({year})</div>
 </li>
 
 <style>
-    .tiny-text {
-        font-size: 0.75rem;
-    }
     li {
         display: flex;
         align-items: baseline;
-        gap: 2rem;
+        gap: 0.4rem;
+        margin-inline-start: 1rem;
     }
 
-    .grid {
-        display: grid;
-        grid-template-areas:
-            'title length'
-            'ensemble ensemble';
-        align-items: center;
-        gap: 0.25rem 1rem;
+    .for {
+        font-size: var(--fs-300);
     }
 
     .title {
-        grid-area: title;
-        font-size: 2rem;
-        font-weight: bold;
-    }
-
-    .length {
-        grid-area: length;
+        font-size: var(--fs-500);
+        white-space: nowrap;
     }
 
     .ensemble {
-        grid-area: ensemble;
+        font-size: var(--fs-400);
+    }
+
+    .year {
+        font-size: var(--fs-300);
+        margin-inline-start: 0.25rem;
     }
 </style>

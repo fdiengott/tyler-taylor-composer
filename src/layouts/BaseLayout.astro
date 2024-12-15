@@ -23,10 +23,26 @@ const head = Astro.props;
     <body class="bg-main text-main">
         <div class="flex flex-col min-h-screen px-4 md:px-8">
             <Nav />
-            <main class="grow w-full max-w-3xl mx-auto">
+            <main class="grow w-full mx-auto">
                 <slot />
             </main>
             <Footer />
         </div>
     </body>
 </html>
+
+<!--  TODO:  -->
+<style is:global>
+    html {
+        scroll-padding-top: 2rem;
+    }
+
+    main {
+        padding-inline: 1rem;
+        max-width: min(100%, 50rem);
+    }
+
+    p ~ p {
+        margin-top: 1rem;
+    }
+</style>

@@ -5,6 +5,7 @@ import { slugify } from '@/utils/common-utils';
 import type { WorkType } from '@/content.config';
 import { removeTemplates, sortWorksByDate } from '@/utils/data-utils';
 import WorkCard from '@/components/WorkCard.astro';
+import Pill from '@/components/Pill.astro';
 
 const works = await getCollection('works');
 const cleanWorks = removeTemplates(works).sort(sortWorksByDate);
@@ -22,12 +23,25 @@ const worksByCategory = cleanWorks.reduce<Record<string, WorkType[]>>((acc, work
 ---
 
 <BaseLayout title="Works" description="My works">
-    <h1>Works</h1>
+    <div class="title-wrapper">
+        <h1>Works</h1>
+        <ul class="category-pill-list">
+            {
+                workCategories.map((category) => (
+                    <li>
+                        <Pill href={`#${category}`}>{category}</Pill>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
     <ul class="category-list">
         {
             workCategories.map((category: string) => (
                 <li>
-                    <h2 class="category-title">{category}</h2>
+                    <h2 id={category} class="category-title">
+                        {category}
+                    </h2>
                     <ul class="works-list">
                         {worksByCategory[category].map((work) => (
                             <WorkCard {...work.data} slug={`/works/${slugify(work.data.title)}`} />
@@ -40,6 +54,20 @@ const worksByCategory = cleanWorks.reduce<Record<string, WorkType[]>>((acc, work
 </BaseLayout>
 
 <style>
+    .title-wrapper {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        column-gap: 3rem;
+        margin-block-end: 3rem;
+    }
+
+    .category-pill-list {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+
     .category-list {
         display: grid;
         gap: 6rem;
@@ -47,7 +75,7 @@ const worksByCategory = cleanWorks.reduce<Record<string, WorkType[]>>((acc, work
 
     .works-list {
         display: grid;
-        gap: 4rem;
+        gap: 2rem;
     }
 
     .category-title {

@@ -34,17 +34,6 @@ const pages = defineCollection({
     }),
 });
 
-const projects = defineCollection({
-    loader: glob({ pattern: '**/*.md', base: 'src/content/projects' }),
-    schema: z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        publishDate: z.coerce.date(),
-        isFeatured: z.boolean().default(false),
-        seo: seoSchema.optional(),
-    }),
-});
-
 const contact = defineCollection({
     loader: glob({ pattern: '**/*.md', base: 'src/content/contact' }),
     schema: z.object({
@@ -63,16 +52,19 @@ const about = defineCollection({
     }),
 });
 
+// ASK which date fields are needed of date, year, premiere?
 const workSchema = z.object({
     template: z.boolean().default(false),
     title: z.string(),
     category: z.string(),
     premiere: z.string().optional(),
-    date: z.string().optional(),
-    length: z.number(),
+    date: z.string().optional(), // is this needed?
+    duration: z.number(),
     year: z.number(),
     commissioner: z.string().optional(),
     ensemble: z.string(),
+    instrumentation: z.string().optional(),
+    extraNotes: z.array(z.string()).optional(),
     video: z.string().optional(),
     audio: z.string().optional(),
 });
@@ -103,4 +95,4 @@ const news = defineCollection({
 
 export type WorkType = z.infer<typeof workSchema>;
 
-export const collections = { blog, pages, projects, contact, about, works, press, news };
+export const collections = { blog, pages, contact, about, works, press, news };

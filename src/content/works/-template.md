@@ -1,7 +1,7 @@
 ---
 title: Name of piece
 category: make sure it matches the other categories
-length: 8
+duration: 8
 year: 2080
 premiere: date-in-YYYY-MM-DD?
 date: date-in-YYYY-MM-DD?
@@ -13,3 +13,5 @@ audio: https://soundcloud.com/tyler-w-taylor/link-to-audio?
 ---
 
 Here is some text talking about the piece.
+video: https://www.youtube.com/watch?v=Yhw3IOpywgU&ab_channel=TylerTaylorComposer
+audio: https://soundcloud.com/tyler-w-taylor/uncharted-for-symphonic-band-2024

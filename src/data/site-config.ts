@@ -16,12 +16,6 @@ export type Hero = {
     actions?: Link[];
 };
 
-export type Subscribe = {
-    title?: string;
-    text?: string;
-    formUrl: string;
-};
-
 export type SiteConfig = {
     logo?: Image;
     title: string;
@@ -32,9 +26,8 @@ export type SiteConfig = {
     footerNavLinks?: Link[];
     socialLinks?: Link[];
     hero?: Hero;
-    subscribe?: Subscribe;
-    postsPerPage?: number;
-    projectsPerPage?: number;
+    newsPerPage?: number;
+    worksPerPage?: number;
 };
 
 const siteConfig: SiteConfig = {
@@ -42,6 +35,7 @@ const siteConfig: SiteConfig = {
     subtitle: 'Author, translator, editor, teacher, tutor',
     description: 'Tyler Taylor, composer',
     image: {
+        //  TODO:
         src: '/dante-preview.jpg',
         alt: '',
     },
@@ -108,13 +102,8 @@ const siteConfig: SiteConfig = {
             alt: 'Tyler Taylor',
         },
     },
-    subscribe: {
-        title: 'Subscribe to Dante Newsletter',
-        text: 'One update per week. All the latest posts directly in your inbox.',
-        formUrl: '#',
-    },
-    postsPerPage: 8,
-    projectsPerPage: 8,
+    newsPerPage: 8,
+    worksPerPage: 8,
 };
 
 export default siteConfig;

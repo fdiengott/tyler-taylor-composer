@@ -33,8 +33,13 @@ const head = Astro.props;
 
 <!--  TODO:  -->
 <style is:global>
+    html {
+        scroll-padding-top: 2rem;
+    }
+
     main {
         padding-inline: 1rem;
+        max-width: min(100%, 50rem);
     }
 
     p ~ p {

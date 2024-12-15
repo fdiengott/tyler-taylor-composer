@@ -1,6 +1,4 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
-
 interface Props {
     title: string;
     year: number;
@@ -21,7 +19,6 @@ const { title, year, slug, ensemble } = Astro.props;
 <style>
     li {
         display: flex;
-        max-width: min(100%, 40rem);
         align-items: baseline;
         gap: 0.4rem;
         margin-inline-start: 1rem;
@@ -33,6 +30,7 @@ const { title, year, slug, ensemble } = Astro.props;
 
     .title {
         font-size: var(--fs-500);
+        white-space: nowrap;
     }
 
     .ensemble {

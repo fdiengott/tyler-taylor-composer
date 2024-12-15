@@ -62,6 +62,7 @@ const workSchema = z.object({
     year: z.number(),
     commissioner: z.string().optional(),
     ensemble: z.string(),
+    instrumentation: z.string(),
     video: z.string().optional(),
     audio: z.string().optional(),
 });

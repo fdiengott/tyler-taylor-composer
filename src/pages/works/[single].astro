@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 }
 
 const { work } = Astro.props;
-const { audio, commissioner, ensemble, length, premiere, title, video, instrumentation } = work.data;
+const { audio, commissioner, ensemble, duration, premiere, title, video, instrumentation } = work.data;
 const { Content } = await render(work as any);
 ---
 
@@ -36,7 +36,7 @@ const { Content } = await render(work as any);
         <section>
             <div class="grid">
                 <div><b>Ensemble:</b> {ensemble} ({instrumentation})</div>
-                <div><b>Duration:</b> {length} minutes</div>
+                <div><b>Duration:</b> {duration} minutes</div>
                 <div><b>Commissioned by:</b> {commissioner}</div>
                 <div><b>Premiere:</b> {premiere}</div>
             </div>

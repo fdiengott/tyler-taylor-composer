@@ -130,7 +130,7 @@ category: Chamber
     {
         content: `
 ---
-title: “some notes”  
+title: "some notes"
 ensemble: Horn Quartet
 duration: 15
 year: 2017
@@ -167,7 +167,7 @@ category: Chamber
     {
         content: `
 ---
-title: “It is what it is.”  
+title: "It is what it is."
 ensemble: Two Horns
 duration: 4
 year: 2013
@@ -331,7 +331,7 @@ extraNotes:
     {
         content: `
 ---
-title: “Lake Music” Concerto  
+title: "Lake Music" Concerto  
 ensemble: Horn and Chamber Orchestra
 duration: 15
 year: 2016

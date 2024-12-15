@@ -34,17 +34,6 @@ const pages = defineCollection({
     }),
 });
 
-const projects = defineCollection({
-    loader: glob({ pattern: '**/*.md', base: 'src/content/projects' }),
-    schema: z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        publishDate: z.coerce.date(),
-        isFeatured: z.boolean().default(false),
-        seo: seoSchema.optional(),
-    }),
-});
-
 const contact = defineCollection({
     loader: glob({ pattern: '**/*.md', base: 'src/content/contact' }),
     schema: z.object({
@@ -103,4 +92,4 @@ const news = defineCollection({
 
 export type WorkType = z.infer<typeof workSchema>;
 
-export const collections = { blog, pages, projects, contact, about, works, press, news };
+export const collections = { blog, pages, contact, about, works, press, news };

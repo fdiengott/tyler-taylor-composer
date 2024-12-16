@@ -10,8 +10,14 @@ const slug = `/works/${slugify(title)}`;
 ---
 
 <div>
-    <h2><a href={slug}>{title} for {ensemble}</a></h2>
+    <a href={slug}>{title} for {ensemble}</a>
     <div>premiere: {premiere}</div>
     <div>year: {year}</div>
     {video && <Youtube client:load url={video} title={title} />}
 </div>
+
+<style>
+    a {
+        font-size: var(--fs-400);
+    }
+</style>

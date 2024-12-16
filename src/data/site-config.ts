@@ -41,10 +41,6 @@ const siteConfig: SiteConfig = {
     },
     headerNavLinks: [
         {
-            text: 'Home',
-            href: '/',
-        },
-        {
             text: 'About',
             href: '/about',
         },
@@ -79,18 +75,16 @@ const siteConfig: SiteConfig = {
             href: '/about',
         },
         {
+            text: 'Works',
+            href: '/works',
+        },
+        {
+            text: 'Press',
+            href: '/press',
+        },
+        {
             text: 'Contact',
             href: '/contact',
-        },
-        {
-            text: 'Terms',
-            href: '/terms',
-        },
-    ],
-    socialLinks: [
-        {
-            text: 'Instagram',
-            href: 'https://instagram.com/',
         },
     ],
     hero: {

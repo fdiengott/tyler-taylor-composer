@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import NavLink from './NavLink.astro';
 import ThemeToggle from './ThemeToggle.astro';
 import Social from '@/components/Social.astro';
@@ -6,6 +7,22 @@ import siteConfig from '../data/site-config';
 import social from '@/config/social.json';
 
 const navLinks = siteConfig.headerNavLinks || [];
+const blogs = await getCollection('blog');
+const gallery = await getCollection('gallery');
+const news = await getCollection('news');
+const linksWithContent = navLinks.filter((link) => {
+    if (blogs.length <= 1 && link.href === '/blog') {
+        return false;
+    }
+    if (gallery.length <= 1 && link.href === '/gallery') {
+        return false;
+    }
+    if (news.length <= 1 && link.href === '/news') {
+        return false;
+    }
+
+    return true;
+});
 ---
 
 <nav class="min-h-10 pt-4 pb-12 relative sm:min-h-14 sm:pb-12 md:pt-8">
@@ -27,7 +44,7 @@ const navLinks = siteConfig.headerNavLinks || [];
         <div class="links-wrapper">
             <ul id="menu-items" class="links-list menu gap-6">
                 {
-                    navLinks.map((link) => (
+                    linksWithContent.map((link) => (
                         <li class="py-1">
                             <NavLink
                                 class="text-xl font-serif text-main hover:underline hover:underline-offset-2 hover:decoration-1 md:text-base"
@@ -39,9 +56,9 @@ const navLinks = siteConfig.headerNavLinks || [];
                     ))
                 }
             </ul>
-            <Social source={social} />
         </div>
         <div class="right-0 top-4 z-10 md:top-8 theme-toggle-wrapper">
+            <Social source={social} />
             <ThemeToggle />
         </div>
     </div>
@@ -57,6 +74,8 @@ const navLinks = siteConfig.headerNavLinks || [];
         position: absolute;
         right: 0;
         top: 4px;
+        display: flex;
+        column-gap: 1rem;
     }
 
     @media (min-width: 768px) {
@@ -71,6 +90,7 @@ const navLinks = siteConfig.headerNavLinks || [];
         display: flex;
         flex-direction: column;
         line-height: 1;
+        z-index: 1;
 
         & b {
             font-size: var(--fs-600);
@@ -80,6 +100,9 @@ const navLinks = siteConfig.headerNavLinks || [];
     .links-list {
         display: flex;
         justify-content: center;
+        position: absolute;
+        top: 0;
+        inset-inline: 0;
     }
 
     @media (max-width: 767px) {

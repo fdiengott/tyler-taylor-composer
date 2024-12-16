@@ -14,7 +14,7 @@ const cleanPressPieces = removeTemplates(pressPieces);
         {
             cleanPressPieces.map((piece) => (
                 <Card>
-                    <a href={piece.data.linkUrl}>
+                    <a href={piece.data.linkUrl} target="_blank" rel="noopener noreferrer">
                         <p>{piece.data.linkText}</p>
                     </a>
                     <p>{piece.data.publication}</p>

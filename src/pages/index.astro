@@ -5,12 +5,12 @@ import Hero from '../components/Hero.astro';
 import WorkPreview from '@/components/WorkPreview.astro';
 import NewsPreview from '@/components/NewsPreview.astro';
 import siteConfig from '../data/site-config';
-import { sortItemsByDateDesc, sortWorksByDate } from '../utils/data-utils';
+import { removeTemplates, sortItemsByDateDesc, sortWorksByDate } from '../utils/data-utils';
 
-const works = await getCollection('works');
+const works = removeTemplates(await getCollection('works'));
 const newestWork = works.sort(sortWorksByDate)[0];
 
-const news = (await getCollection('news'))?.sort(sortItemsByDateDesc);
+const news = removeTemplates(await getCollection('news'))?.sort(sortItemsByDateDesc);
 const featuredNews = news?.slice(0, 3);
 ---
 

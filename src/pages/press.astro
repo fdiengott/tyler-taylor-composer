@@ -12,7 +12,7 @@ const cleanPressPieces = removeTemplates(pressPieces);
     <h1>Press</h1>
     <ul>
         {
-            pressPieces.map((piece) => (
+            cleanPressPieces.map((piece) => (
                 <Card>
                     <a href={piece.data.linkUrl}>
                         <p>{piece.data.linkText}</p>

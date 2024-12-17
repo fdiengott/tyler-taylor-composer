@@ -65,6 +65,7 @@ const workSchema = z.object({
     ensemble: z.string(),
     instrumentation: z.string().optional(),
     extraNotes: z.array(z.string()).optional(),
+    programNotes: z.string().optional(),
     video: z.string().optional(),
     audio: z.string().optional(),
 });

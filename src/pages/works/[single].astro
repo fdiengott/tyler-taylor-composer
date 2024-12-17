@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 }
 
 const { work } = Astro.props;
-const { audio, commissioner, ensemble, duration, premiere, title, video, instrumentation, extraNotes } = work.data;
+const { audio, commissioner, ensemble, duration, premiere, title, video, instrumentation, extraNotes, programNotes } = work.data;
 const { Content } = await render(work as any);
 ---
 
@@ -45,6 +45,13 @@ const { Content } = await render(work as any);
                     <div><b>Commissioned by:</b> {commissioner}</div>
                     <div><b>Premiere:</b> {premiere}</div>
                     {
+                        programNotes && (
+                            <div>
+                                <b>Program Notes:</b> <a href={programNotes}>Program notes</a>
+                            </div>
+                        )
+                    }
+                    {
                         extraNotes && (
                             <ul class="extra-notes">
                                 {extraNotes.map((note: string) => (
@@ -57,13 +64,13 @@ const { Content } = await render(work as any);
             </section>
 
             <aside>
-                {video && <Youtube client:load url={video} title={title} width="100%" style={{ maxWidth: '100vw', marginInline: 'auto' }} />}
                 {audio && <SoundCloud client:visible url={audio} width="100%" style={{ maxWidth: '100vw', marginInline: 'auto' }} />}
             </aside>
+            {video && <Youtube client:load url={video} title={title} width="100%" style={{ maxWidth: '100vw', marginInline: 'auto' }} />}
         </div>
 
         {
-            Content && (
+            Content.length > 0 && (
                 <div class="content-wrapper">
                     <Content />
                 </div>

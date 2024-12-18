@@ -10,7 +10,7 @@ const { Content } = await render(news);
 ---
 
 <article class="news-preview">
-    <a class="link" href={linkUrl}>
+    <a class="link" href={linkUrl} target="_blank" rel="noopener noreferrer">
         <h2>{title}</h2>
     </a>
     <p>{date.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: '2-digit' })}</p>

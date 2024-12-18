@@ -10,7 +10,9 @@ const { Content } = await render(press);
 ---
 
 <li class="press-preview">
-    <a class="link" href={linkUrl}>{title}</a>
+    <a class="link" href={linkUrl} target="_blank" rel="noopener noreferrer">
+        {title}
+    </a>
     <p>{publication}</p>
     {Content && <Content />}
 </li>

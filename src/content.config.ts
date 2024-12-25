@@ -94,6 +94,19 @@ const news = defineCollection({
     }),
 });
 
+const hero = defineCollection({
+    loader: glob({ pattern: '**/*.md', base: 'src/content/hero' }),
+    schema: z.object({
+        title: z.string(),
+        subtitle: z.string().optional(),
+        image: z.object({
+            src: z.string(),
+            alt: z.string(),
+        }),
+        linkUrl: z.string().optional(),
+    }),
+});
+
 export type WorkType = z.infer<typeof workSchema>;
 
-export const collections = { blog, pages, contact, about, works, press, news };
+export const collections = { blog, pages, contact, about, works, press, news, hero };

@@ -1,20 +1,43 @@
 ---
-import siteConfig from '../data/site-config';
+import { getEntry, render } from 'astro:content';
 
-const hero = siteConfig.hero;
+const entry = await getEntry('hero', 'index');
+const hero = entry?.data;
+const { Content } = await render(entry);
+
+console.log({ hero });
 ---
 
-{
-    (hero?.title || hero?.image?.src || hero?.text || (hero?.actions && hero.actions.length > 0)) && (
-        <section class="w-full flex flex-col gap-8 mb-16 sm:mb-16">
-            {hero.title && <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{hero.title}</h1>}
-            {hero.image?.src && (
-                <figure>
-                    <img class="w-full" src={hero.image.src} loading="lazy" decoding="async" alt={hero.image.alt || ''} />
-                    {hero.image.caption && <figcaption class="mt-1.5 text-xs sm:text-sm">{hero.image.caption}</figcaption>}
-                </figure>
-            )}
-            {hero.text && <div class="max-w-none prose prose-dante sm:prose-lg">{hero.text}</div>}
-        </section>
-    )
-}
+<section class="w-full flex flex-col gap-8 mb-16 sm:mb-16">
+    <div class="title-wrapper">
+        {hero.title && <h1 class="title">{hero.title}</h1>}
+        {hero.subtitle && <p class="subtitle">{hero.subtitle}</p>}
+    </div>
+    <figure>
+        <img class="w-full" src={hero.image.src} loading="lazy" decoding="async" alt={hero.image.alt || ''} />
+        {hero.image.caption && <figcaption class="mt-1.5 text-xs sm:text-sm">{hero.image.caption}</figcaption>}
+    </figure>
+    <div class="max-w-none prose prose-dante sm:prose-lg">
+        <Content />
+        {
+            hero.linkUrl && (
+                <a href={hero.linkUrl} class="mt-8 text-center">
+                    Read More
+                </a>
+            )
+        }
+    </div>
+</section>
+
+<style>
+    .title-wrapper {
+        margin-block-end: var(--spacing-200);
+    }
+
+    .title {
+        font-family: Newsreader, ui-serif, Georgia, serif;
+        line-height: 1.2;
+        font-weight: 500;
+        margin: 0;
+    }
+</style>

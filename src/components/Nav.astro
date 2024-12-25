@@ -26,62 +26,80 @@ const linksWithContent = navLinks.filter((link) => {
 ---
 
 <nav class="min-h-10 pt-4 pb-12 relative sm:min-h-14 sm:pb-12 md:pt-8">
-    <div class="w-full mx-auto relative">
-        <div class="top-left-nav-wrapper">
-            <button
-                class="menu-toggle w-8 h-8 -ml-1 flex items-center justify-center relative z-30 md:hidden"
-                aria-label="Open Menu"
-                aria-expanded="false"
-                aria-controls="menu-items"
-            >
-                <span class="menu-toggle-icon w-6 h-px relative bg-current"></span>
-            </button>
-            <a class="site-title-link" href="/">
-                <b>Tyler Taylor</b>
-                <span>Composer</span>
-            </a>
+    <div class="floating-nav w-full mx-auto">
+        <div class="top-nav-wrapper">
+            <div class="top-left-nav-wrapper">
+                <button
+                    class="menu-toggle w-8 h-8 -ml-1 flex items-center justify-center relative z-30"
+                    aria-label="Open Menu"
+                    aria-expanded="false"
+                    aria-controls="menu-items"
+                >
+                    <span class="menu-toggle-icon w-6 h-px relative bg-current"></span>
+                </button>
+                <a class="site-title-link" href="/">
+                    <b>Tyler Taylor</b>
+                    <span>Composer</span>
+                </a>
+            </div>
+            <div class="right-0 top-4 z-10 md:top-8 theme-toggle-wrapper">
+                <Social source={social} />
+                <ThemeToggle />
+            </div>
         </div>
-        <div class="links-wrapper">
-            <ul id="menu-items" class="links-list menu gap-6">
-                {
-                    linksWithContent.map((link) => (
-                        <li class="py-1">
-                            <NavLink
-                                class="text-xl font-serif text-main hover:underline hover:underline-offset-2 hover:decoration-1 md:text-base"
-                                href={link.href}
-                            >
-                                {link.text}
-                            </NavLink>
-                        </li>
-                    ))
-                }
-            </ul>
-        </div>
-        <div class="right-0 top-4 z-10 md:top-8 theme-toggle-wrapper">
-            <Social source={social} />
-            <ThemeToggle />
-        </div>
+    </div>
+    <div class="nav-links-wrapper">
+        <button class="menu-toggle mobile" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items">
+            <span class="menu-toggle-icon w-6 h-px relative bg-current"></span>
+        </button>
+        <ul id="menu-items" class="links-list menu gap-6">
+            {
+                linksWithContent.map((link) => (
+                    <li class="py-1">
+                        <NavLink class="font-serif text-main hover:underline hover:underline-offset-2 hover:decoration-1 md:text-base" href={link.href}>
+                            {link.text}
+                        </NavLink>
+                    </li>
+                ))
+            }
+        </ul>
     </div>
 </nav>
 
 <style>
+    :root {
+        --floating-nav-height: 5rem;
+    }
+
+    .floating-nav {
+        position: fixed;
+        inset-inline: 0;
+        top: 0;
+        padding: 1rem 1rem 0;
+        padding-block-start: 1rem;
+        height: var(--floating-nav-height);
+        background: var(--color-bg-primary);
+        border-block-end: 1px solid hsl(from var(--color-border-primary) h s 40);
+    }
+
+    .top-nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        position: relative;
+    }
+
     .top-left-nav-wrapper {
         display: flex;
         gap: 1rem;
     }
 
     .theme-toggle-wrapper {
-        position: absolute;
         right: 0;
         top: 4px;
         display: flex;
-        column-gap: 1rem;
-    }
-
-    @media (min-width: 768px) {
-        .site-title-wrapper {
-            text-align: left;
-        }
+        column-gap: 0.5rem;
     }
 
     .site-title-link {
@@ -91,6 +109,7 @@ const linksWithContent = navLinks.filter((link) => {
         flex-direction: column;
         line-height: 1;
         z-index: 1;
+        min-width: 4rem;
 
         & b {
             font-size: var(--fs-600);
@@ -98,36 +117,81 @@ const linksWithContent = navLinks.filter((link) => {
     }
 
     .links-list {
-        display: flex;
-        justify-content: center;
         position: absolute;
-        top: 0;
-        inset-inline: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        position: absolute;
+        top: -2rem;
+        left: -2rem;
+        margin: 0.25rem 0 0 0.25rem;
+        max-width: 16rem;
+
+        visibility: hidden;
+        border-width: 1px;
+        border-style: dashed;
+        --tw-border-opacity: 1;
+        border-color: hsl(from var(--color-border-primary) h s l / var(--tw-border-opacity, 1));
+        --tw-bg-opacity: 1;
+        background-color: var(--color-bg-primary);
+        padding: 4rem 0.75rem 1.5rem;
+        width: calc(100% + 1.25rem);
     }
 
-    @media (max-width: 767px) {
-        .menu {
-            @apply flex-col gap-1 absolute -top-2.5 -left-2.5 max-w-64 px-3 pt-16 pb-10 z-20 bg-main border border-dashed border-main invisible opacity-0;
-            width: calc(100% + 1.25rem);
+    @media (min-width: 1250px) {
+        .nav-links-wrapper {
+            position: relative;
+            max-width: var(--full-page-width);
+            padding-inline: var(--full-page-padding);
+            margin-inline: auto;
         }
-        .menu.is-visible {
-            @apply visible opacity-100;
-            transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+
+        .links-list {
+            visibility: visible;
+            flex-direction: row;
+            border: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+            inset: 0;
         }
+
+        .menu-toggle,
         .menu-toggle-icon {
-            transition: width 0.1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+            display: none;
         }
-        .menu-toggle.is-active .menu-toggle-icon {
-            @apply w-0;
-            transition: width 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .links-list {
+        display: flex;
+        position: relative;
+    }
+
+    .menu-toggle.mobile {
+        display: block;
+    }
+
+    @media (max-width: 1250px) {
+        .links-list.is-visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .menu-toggle.mobile {
+            display: none;
+            position: relative;
+            z-index: 1;
+            margin-inline-start: -0.25rem;
+        }
+
+        .menu-toggle.mobile.is-active {
+            display: block;
         }
         .menu-toggle-icon:before,
         .menu-toggle-icon:after {
             @apply w-6 h-px absolute left-1/2 top-0 origin-center -translate-x-1/2 bg-current;
             content: '';
-            transition:
-                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-                margin 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
         }
         .menu-toggle-icon:before {
             @apply -mt-1.5;
@@ -138,9 +202,6 @@ const linksWithContent = navLinks.filter((link) => {
         .menu-toggle.is-active .menu-toggle-icon:before,
         .menu-toggle.is-active .menu-toggle-icon:after {
             @apply mt-0;
-            transition:
-                margin 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s,
-                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
         }
         .menu-toggle.is-active .menu-toggle-icon:before {
             @apply rotate-45;
@@ -152,15 +213,28 @@ const linksWithContent = navLinks.filter((link) => {
 </style>
 
 <script>
+    const toggleActiveBtns = () => {
+        const menuToggleBtns = document.querySelectorAll('.menu-toggle');
+        let isMenuExpanded;
+        menuToggleBtns.forEach((btn) => {
+            isMenuExpanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.classList.toggle('is-active');
+            btn.setAttribute('aria-expanded', isMenuExpanded ? 'false' : 'true');
+            btn.setAttribute('aria-label', isMenuExpanded ? 'Open Menu' : 'Close Menu');
+        });
+    };
     function menuToggle() {
         const menu = document.querySelector('.menu');
-        const menuToggleBtn = document.querySelector('.menu-toggle');
-        menuToggleBtn?.addEventListener('click', () => {
-            const isMenuExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
-            menuToggleBtn.classList.toggle('is-active');
-            menuToggleBtn.setAttribute('aria-expanded', isMenuExpanded ? 'false' : 'true');
-            menuToggleBtn.setAttribute('aria-label', isMenuExpanded ? 'Open Menu' : 'Close Menu');
-            menu?.classList.toggle('is-visible');
+        const menuToggleBtns = document.querySelectorAll('.menu-toggle');
+        menuToggleBtns.forEach((btn) => {
+            btn?.addEventListener('click', () => {
+                // const isMenuExpanded = btn.getAttribute('aria-expanded') === 'true';
+                // btn.classList.toggle('is-active');
+                // btn.setAttribute('aria-expanded', isMenuExpanded ? 'false' : 'true');
+                // btn.setAttribute('aria-label', isMenuExpanded ? 'Open Menu' : 'Close Menu');
+                toggleActiveBtns();
+                menu?.classList.toggle('is-visible');
+            });
         });
     }
     menuToggle();

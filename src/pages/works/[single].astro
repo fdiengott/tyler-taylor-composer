@@ -85,7 +85,7 @@ const { Content } = await render(work as any);
         --list-separator: 0.25rem;
     }
     .title {
-        border-block-end: 1px solid hsl(var(--color-border-primary));
+        border-block-end: 1px solid var(--color-border-primary);
         margin-block-end: var(--section-separator);
     }
 
@@ -111,7 +111,12 @@ const { Content } = await render(work as any);
     .content-wrapper {
         margin-block: 2rem;
         padding-block-start: var(--section-separator);
-        border-block-start: 1px solid hsl(var(--color-border-primary));
+        border-block-start: 1px solid var(--color-border-primary);
+        display: none;
+
+        &:has(> *) {
+            display: block;
+        }
     }
 
     aside {

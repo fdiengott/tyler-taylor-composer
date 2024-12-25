@@ -5,20 +5,20 @@
 @layer base {
     /*  INFO: all colors are in HSL */
     :root {
-        --color-text-primary: 0 0 9;
-        --color-text-secondary: 50 19 94;
-        --color-bg-primary: 50 19 94;
-        --color-bg-muted: 53 18 90;
-        --color-border-primary: 0 0 9;
-        --color-accent-primary: 337 66 43;
+        --color-text-primary: hsl(0 0 9);
+        --color-text-secondary: hsl(50 19 94);
+        --color-bg-primary: hsl(50 19 94);
+        --color-bg-muted: hsl(53 18 90);
+        --color-border-primary: hsl(0 0 9);
+        --color-accent-primary: hsl(337 66 34);
     }
     html.dark {
-        --color-text-primary: 50 19 94;
-        --color-text-secondary: 0 0 9;
-        --color-bg-primary: 0 0 9;
-        --color-bg-muted: 0 0 14;
-        --color-border-primary: 50 19 94;
-        --color-accent-primary: 337 66 58;
+        --color-text-primary: hsl(50 19 94);
+        --color-text-secondary: hsl(0 0 9);
+        --color-bg-primary: hsl(0 0 9);
+        --color-bg-muted: hsl(0 0 14);
+        --color-border-primary: hsl(50 19 94);
+        --color-accent-primary: hsl(44 40 69);
     }
 
     :root {
@@ -31,24 +31,29 @@
         --fs-700: clamp(1.94rem, calc(1.59rem + 1.77vw), 2.96rem);
         --fs-800: clamp(2.33rem, calc(1.77rem + 2.81vw), 3.95rem);
         --fs-900: clamp(2.8rem, calc(1.94rem + 4.28vw), 5.26rem);
+
+        --spacing-050: 0.125rem;
+        --spacing-100: 0.25rem;
+        --spacing-150: 0.5rem;
+        --spacing-200: 0.75rem;
+        --spacing-300: 1.5rem;
+        --spacing-400: 2rem;
+        --spacing-450: 2.5rem;
+        --spacing-500: 3.5rem;
+        --spacing-600: 5rem;
+        --spacing-700: 7rem;
+
+        --full-page-width: min(100%, 50rem);
+        --full-page-padding: 1rem;
     }
 
     a {
-        color: hsl(var(--color-accent-primary));
+        color: var(--color-accent-primary);
         text-decoration: underline;
 
         &:hover {
-            color: hsl(var(--color-accent-primary) / 0.8);
+            color: hsl(from var(--color-accent-primary) / 0.8);
         }
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-block-end: 5em;
     }
 
     h1 {

@@ -3,7 +3,7 @@ title: Name of blog post
 excerpt: A short description of the post?
 publishDate: Aug 5 2023
 updatedDate: Aug 7 2023?
-isFeatured: false?
+isFeatured: false
 tags:
   - this is the first item in a list of tags?
 seo:

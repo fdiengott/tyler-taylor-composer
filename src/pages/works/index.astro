@@ -10,14 +10,21 @@ import Pill from '@/components/Pill.astro';
 const works = await getCollection('works');
 const cleanWorks = removeTemplates(works).sort(sortWorksByDate);
 
-const workCategories: string[] = Array.from(new Set(cleanWorks.map((work) => work.data.category)));
+const CATEGORY_ORDER = ['orchestral', 'chamber', 'mixed ensemble', 'wind band', 'solo', 'installation'] as const;
+
+const workCategories: string[] = Array.from(new Set(cleanWorks.map((work) => work.data.category.toLowerCase()))).sort((a: string, b: string) => {
+    const aIndex = CATEGORY_ORDER.indexOf(a as (typeof CATEGORY_ORDER)[number]);
+    const bIndex = CATEGORY_ORDER.indexOf(b as (typeof CATEGORY_ORDER)[number]);
+    // INFO: add infinity so that a new category will always be at the end
+    return (aIndex < 0 ? Infinity : aIndex) - (bIndex < 0 ? Infinity : bIndex);
+});
 
 const worksByCategory = cleanWorks.reduce<Record<string, WorkType[]>>((acc, work) => {
-    const category = work.data.category;
-    if (!acc[category]) {
-        acc[category] = [];
-    }
+    const category = work.data.category.toLowerCase();
+
+    acc[category] ||= [];
     acc[category].push(work);
+
     return acc;
 }, {});
 ---
@@ -58,27 +65,37 @@ const worksByCategory = cleanWorks.reduce<Record<string, WorkType[]>>((acc, work
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        column-gap: 3rem;
-        margin-block-end: 3rem;
+        column-gap: var(--spacing-400);
+        margin-block-end: var(--spacing-450);
+
+        h1 {
+            margin-block-end: 0;
+        }
     }
 
     .category-pill-list {
         display: flex;
-        gap: 0.75rem;
+        gap: var(--spacing-200);
         flex-wrap: wrap;
     }
 
     .category-list {
         display: grid;
-        gap: 6rem;
+        gap: var(--spacing-600);
     }
 
     .works-list {
         display: grid;
-        gap: 2rem;
+        gap: var(--spacing-400);
     }
 
     .category-title {
         text-transform: capitalize;
+    }
+
+    @media (min-width: 768px) {
+        .works-list {
+            gap: var(--spacing-500);
+        }
     }
 </style>

@@ -1,0 +1,16 @@
+---
+import ExternalIcon from '@/components/ExternalIcon.astro';
+
+const { linkUrl, title } = Astro.props;
+---
+
+<a class="link" href={linkUrl} target="_blank" rel="noopener noreferrer">
+    {title}
+    <ExternalIcon />
+</a>
+
+<style>
+    a {
+        margin-block-end: 0;
+    }
+</style>

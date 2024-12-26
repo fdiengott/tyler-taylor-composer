@@ -10,14 +10,14 @@ module.exports = {
         },
         extend: {
             textColor: {
-                main: 'hsl(var(--color-text-primary) / <alpha-value>)',
+                main: 'hsl(from var(--color-text-primary) h s l / <alpha-value>)',
             },
             backgroundColor: {
-                main: 'hsl(var(--color-bg-primary) / <alpha-value>)',
-                muted: 'hsl(var(--color-bg-muted) / <alpha-value>)',
+                main: 'hsl(from var(--color-bg-primary) h s l / <alpha-value>)',
+                muted: 'hsl(from var(--color-bg-muted)  h s l / <alpha-value>)',
             },
             borderColor: {
-                main: 'hsl(var(--color-border-primary) / <alpha-value>)',
+                main: 'hsl(from var(--color-border-primary) h s l / <alpha-value>)',
             },
             typography: (theme) => ({
                 dante: {

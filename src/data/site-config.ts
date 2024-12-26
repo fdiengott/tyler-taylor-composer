@@ -9,13 +9,6 @@ export type Link = {
     href: string;
 };
 
-export type Hero = {
-    title?: string;
-    text?: string;
-    image?: Image;
-    actions?: Link[];
-};
-
 export type SiteConfig = {
     logo?: Image;
     title: string;
@@ -25,14 +18,13 @@ export type SiteConfig = {
     headerNavLinks?: Link[];
     footerNavLinks?: Link[];
     socialLinks?: Link[];
-    hero?: Hero;
     newsPerPage?: number;
     worksPerPage?: number;
 };
 
 const siteConfig: SiteConfig = {
     title: 'Tyler Taylor',
-    subtitle: 'Author, translator, editor, teacher, tutor',
+    subtitle: 'Composer, performer',
     description: 'Tyler Taylor, composer',
     image: {
         //  TODO:
@@ -87,15 +79,6 @@ const siteConfig: SiteConfig = {
             href: '/contact',
         },
     ],
-    hero: {
-        title: 'Tyler Taylor',
-        text: 'A short phrase maybe?',
-        image: {
-            src: '/hero.jpeg',
-            //  TODO:
-            alt: 'Tyler Taylor',
-        },
-    },
     newsPerPage: 8,
     worksPerPage: 8,
 };

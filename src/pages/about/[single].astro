@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import { slugify } from '../../utils/common-utils';
+import About from '@/components/AboutComponent.astro';
+
+export async function getStaticPaths() {
+    const bios = await getCollection('about');
+
+    return bios.map((bio: { data }) => {
+        return {
+            params: { single: slugify(bio.id) },
+            props: { bio },
+        };
+    });
+}
+
+const { bio } = Astro.props;
+const { Content } = await render(bio as any);
+---
+
+<About bio={bio}>
+    <Content />
+</About>

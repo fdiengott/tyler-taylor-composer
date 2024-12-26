@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { removeTemplates } from '@/utils/data-utils';
 import Card from '@/components/Card.astro';
+import ExternalLink from '@/components/ExternalLink.astro';
 
 const pressPieces = await getCollection('press');
 const cleanPressPieces = removeTemplates(pressPieces);
@@ -14,9 +15,7 @@ const cleanPressPieces = removeTemplates(pressPieces);
         {
             cleanPressPieces.map((piece) => (
                 <Card>
-                    <a href={piece.data.linkUrl} target="_blank" rel="noopener noreferrer">
-                        <p>{piece.data.linkText}</p>
-                    </a>
+                    <ExternalLink linkUrl={piece.data.linkUrl} title={piece.data.linkText} />
                     <p>{piece.data.publication}</p>
                 </Card>
             ))

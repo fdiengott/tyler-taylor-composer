@@ -14,7 +14,7 @@ const seoSchema = z.object({
 });
 
 const blog = defineCollection({
-    loader: glob({ pattern: '**/*.md', base: 'src/content/blog' }),
+    loader: glob({ pattern: '**/*.md', base: 'src/content/blogs' }),
     schema: z.object({
         title: z.string(),
         excerpt: z.string().optional(),
@@ -52,21 +52,18 @@ const about = defineCollection({
     }),
 });
 
-// ASK which date fields are needed of date, year, premiere?
 const workSchema = z.object({
     template: z.boolean().default(false),
     title: z.string(),
     category: z.string(),
     premiere: z.string().optional(),
-    date: z.string().optional(), // is this needed?
-    duration: z.number(),
+    duration: z.number().or(z.string()),
     year: z.number(),
     commissioner: z.string().optional(),
     ensemble: z.string(),
-    instrumentation: z.string().optional(),
+    instrumentation: z.string().or(z.array(z.string())).optional(),
     extraNotes: z.array(z.string()).optional(),
-    programNotes: z.string().optional(),
-    video: z.string().optional(),
+    video: z.string().or(z.array(z.string())).optional(),
     audio: z.string().optional(),
 });
 
@@ -94,6 +91,33 @@ const news = defineCollection({
     }),
 });
 
+const hero = defineCollection({
+    loader: glob({ pattern: '**/*.md', base: 'src/content/hero' }),
+    schema: z.object({
+        title: z.string(),
+        subtitle: z.string().optional(),
+        image: z.object({
+            src: z.string(),
+            alt: z.string(),
+        }),
+        linkUrl: z.string().optional(),
+    }),
+});
+
+const gallery = defineCollection({
+    loader: glob({ pattern: '**/*.md', base: 'src/content/gallery' }),
+    schema: z.object({
+        title: z.string(),
+        desciption: z.string().optional(),
+        images: z.array(
+            z.object({
+                src: z.string(),
+                alt: z.string(),
+            }),
+        ),
+    }),
+});
+
 export type WorkType = z.infer<typeof workSchema>;
 
-export const collections = { blog, pages, contact, about, works, press, news };
+export const collections = { blog, pages, contact, about, works, press, news, hero, gallery };

@@ -6,76 +6,15 @@ const entry = await getEntry('contact', 'index');
 const contact = entry?.data;
 ---
 
-<style>
-    .form-control,
-    .form-select {
-        height: 60px;
-        width: 100%;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
-        font-size: 16px;
-    }
-    .form-group {
-        display: grid;
-    }
-
-    .row {
-        justify-content: center;
-    }
-
-    input,
-    textarea {
-        border: 1px solid #ccc;
-    }
-</style>
-
 <BaseLayout title={contact?.title} description={contact?.description}>
     <section class="page-hero pb-4">
         <h1>{contact?.title}</h1>
     </section>
 
     <section class="section pt-0">
-        <div class="container">
-            <div class="row">
-                <div class="md:col-6 md:order-1">
-                    <form data-netlify="true" name="contact" method="POST">
-                        <input type="hidden" name="subject" value="New inquiry to tylertaylorcomposer.com from %{fullName}" />
-                        <div class="form-group">
-                            <label class="form-label" for="name">Full Name</label>
-                            <input class="form-control" type="text" id="name" placeholder="Your Full Name" name="fullName" />
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="eamil">Email Address</label>
-                            <input class="form-control" type="text" id="email" placeholder="Your Email Address" name="email" />
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="message">Message Here</label>
-                            <textarea class="form-control h-[150px]" id="message" cols="30" rows="10" name="message"></textarea>
-                        </div>
-                        <button class="btn btn-primary block w-full" type="submit">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <dl class="grid">
+            <dt></dt>
+            <dd></dd>
+        </dl>
     </section>
 </BaseLayout>
-
-<style>
-    form {
-        display: grid;
-        gap: 1.25rem;
-    }
-    button {
-        padding: 1rem 0.5rem;
-        border-radius: 0.25rem;
-        border: 1px solid hsl(var(--color-border-primary));
-        margin-block-start: 1rem;
-
-        &:hover,
-        &:focus {
-            background-color: hsl(var(--color-accent-primary));
-            color: hsl(var(--color-text-secondary));
-        }
-    }
-</style>

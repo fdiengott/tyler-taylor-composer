@@ -1,51 +1,9 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import WorkPreview from '@/components/WorkPreview.astro';
-import PressPreview from '@/components/PressPreview.astro';
 import siteConfig from '../data/site-config';
-import { removeTemplates, sortItemsByDateDesc, sortWorksByDate } from '../utils/data-utils';
-
-const works = removeTemplates(await getCollection('works'));
-const newestWork = works.sort(sortWorksByDate)[0];
-
-const press = removeTemplates(await getCollection('press'))?.sort(sortItemsByDateDesc);
-const featuredPress = press?.slice(0, 3);
 ---
 
 <BaseLayout description={siteConfig.description} image={siteConfig.image}>
     <Hero />
-    {
-        featuredPress?.length > 0 && (
-            <div class="mb-16 sm:mb-24">
-                <h2 class="font-serif italic">Press</h2>
-                <ul class="press-list">
-                    {featuredPress.map((newsItem) => (
-                        <PressPreview id={newsItem.id} />
-                    ))}
-                </ul>
-            </div>
-        )
-    }
-    {
-        newestWork && (
-            <div class="mb-16 sm:mb-24">
-                <h2 class="font-serif italic">Latest Work</h2>
-                <WorkPreview work={newestWork} />
-            </div>
-        )
-    }
 </BaseLayout>
-
-<style>
-    .press-list {
-        display: grid;
-        gap: 2rem;
-    }
-
-    h2 {
-        border-block-end: 1px solid hsl(var(--color-border-primary));
-        margin-block-end: 2rem;
-    }
-</style>

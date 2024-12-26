@@ -1,6 +1,6 @@
 ---
-title: Quintet
-ensemble: Winds
+title: Quintet for Winds
+ensemble: Wind Quintet
 duration: 9
 year: 2013
 commissioner: The Air City Wind Quintet

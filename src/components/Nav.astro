@@ -25,144 +25,204 @@ const linksWithContent = navLinks.filter((link) => {
 });
 ---
 
-<nav class="min-h-10 pt-4 pb-12 relative sm:min-h-14 sm:pb-12 md:pt-8">
-    <div class="w-full mx-auto relative">
-        <div class="top-left-nav-wrapper">
-            <button
-                class="menu-toggle w-8 h-8 -ml-1 flex items-center justify-center relative z-30 md:hidden"
-                aria-label="Open Menu"
-                aria-expanded="false"
-                aria-controls="menu-items"
-            >
-                <span class="menu-toggle-icon w-6 h-px relative bg-current"></span>
-            </button>
-            <a class="site-title-link" href="/">
-                <b>Tyler Taylor</b>
-                <span>Composer</span>
-            </a>
+<div class="nav-height"></div>
+<nav class="site-nav">
+    <div class="nav-container">
+        <div class="nav-main">
+            <div class="nav-left">
+                <button class="menu-toggle" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items">
+                    <span class="menu-icon"></span>
+                </button>
+                <a class="site-title" href="/">
+                    <b>Tyler Taylor</b>
+                    <span>Composer</span>
+                </a>
+            </div>
+
+            <div class="nav-right">
+                <Social source={social} />
+                <ThemeToggle />
+            </div>
         </div>
-        <div class="links-wrapper">
-            <ul id="menu-items" class="links-list menu gap-6">
+
+        <div class="nav-links">
+            <ul id="menu-items" class="menu">
                 {
                     linksWithContent.map((link) => (
-                        <li class="py-1">
-                            <NavLink
-                                class="text-xl font-serif text-main hover:underline hover:underline-offset-2 hover:decoration-1 md:text-base"
-                                href={link.href}
-                            >
-                                {link.text}
-                            </NavLink>
+                        <li>
+                            <NavLink href={link.href}>{link.text}</NavLink>
                         </li>
                     ))
                 }
             </ul>
         </div>
-        <div class="right-0 top-4 z-10 md:top-8 theme-toggle-wrapper">
-            <Social source={social} />
-            <ThemeToggle />
-        </div>
     </div>
 </nav>
 
 <style>
-    .top-left-nav-wrapper {
+    :root {
+        --floating-nav-height: 7.5rem;
+    }
+
+    .nav-height {
+        height: var(--floating-nav-height);
+        margin-block-end: 2rem;
+    }
+
+    .site-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: var(--color-bg-primary);
+        border-bottom: 1px solid hsl(from var(--color-border-primary) h s 40);
+    }
+
+    .nav-container {
+        max-width: var(--full-page-width);
+        margin: 0 auto;
+        padding: 1rem;
+        display: grid;
+        gap: 0.5rem;
+    }
+
+    .nav-main {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-left {
+        display: flex;
+        align-items: center;
         gap: 1rem;
     }
 
-    .theme-toggle-wrapper {
-        position: absolute;
-        right: 0;
-        top: 4px;
+    .nav-right {
         display: flex;
-        column-gap: 1rem;
+        align-items: center;
+        gap: 0.5rem;
     }
 
-    @media (min-width: 768px) {
-        .site-title-wrapper {
-            text-align: left;
-        }
-    }
-
-    .site-title-link {
-        color: var(--color-text-primary);
-        text-decoration: none;
+    .site-title {
         display: flex;
         flex-direction: column;
         line-height: 1;
-        z-index: 1;
-
-        & b {
-            font-size: var(--fs-600);
-        }
+        text-decoration: none;
+        color: var(--color-text-primary);
     }
 
-    .links-list {
+    .site-title b {
+        font-size: var(--fs-600);
+    }
+
+    .menu {
         display: flex;
-        justify-content: center;
-        position: absolute;
-        top: 0;
-        inset-inline: 0;
+        gap: 1.5rem;
     }
 
-    @media (max-width: 767px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    /* TODO: make this mobile first */
+    /* Mobile styles */
+    @media (max-width: 768px) {
+        :root {
+            --floating-nav-height: 5rem;
+        }
+
+        .nav-links {
+            position: absolute;
+            top: 100%;
+            left: 1rem;
+            background: var(--color-bg-primary);
+            border: 1px dashed var(--color-border-primary);
+            padding: 2rem;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .nav-links.is-visible {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .menu {
-            @apply flex-col gap-1 absolute -top-2.5 -left-2.5 max-w-64 px-3 pt-16 pb-10 z-20 bg-main border border-dashed border-main invisible opacity-0;
-            width: calc(100% + 1.25rem);
+            flex-direction: column;
+            gap: 0.5rem;
         }
-        .menu.is-visible {
-            @apply visible opacity-100;
-            transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+
+        .menu-toggle {
+            display: block;
+            width: 2rem;
+            height: 2rem;
+            position: relative;
+            background: none;
+            border: none;
+            cursor: pointer;
         }
-        .menu-toggle-icon {
-            transition: width 0.1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
-        }
-        .menu-toggle.is-active .menu-toggle-icon {
-            @apply w-0;
-            transition: width 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .menu-toggle-icon:before,
-        .menu-toggle-icon:after {
-            @apply w-6 h-px absolute left-1/2 top-0 origin-center -translate-x-1/2 bg-current;
+
+        .menu-icon,
+        .menu-icon::before,
+        .menu-icon::after {
             content: '';
-            transition:
-                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-                margin 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+            display: block;
+            width: 1.5rem;
+            height: 2px;
+            background: currentColor;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.2s;
         }
-        .menu-toggle-icon:before {
-            @apply -mt-1.5;
+
+        .menu-icon {
+            top: 50%;
         }
-        .menu-toggle-icon:after {
-            @apply mt-1.5;
+
+        .menu-icon::before {
+            top: -6px;
         }
-        .menu-toggle.is-active .menu-toggle-icon:before,
-        .menu-toggle.is-active .menu-toggle-icon:after {
-            @apply mt-0;
-            transition:
-                margin 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s,
-                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+
+        .menu-icon::after {
+            bottom: -6px;
         }
-        .menu-toggle.is-active .menu-toggle-icon:before {
-            @apply rotate-45;
+
+        .menu-toggle.is-active .menu-icon {
+            background: transparent;
         }
-        .menu-toggle.is-active .menu-toggle-icon:after {
-            @apply -rotate-45;
+
+        .menu-toggle.is-active .menu-icon::before {
+            transform: translateX(-50%) rotate(45deg);
+            top: 0;
+        }
+
+        .menu-toggle.is-active .menu-icon::after {
+            transform: translateX(-50%) rotate(-45deg);
+            bottom: 0;
         }
     }
 </style>
 
 <script>
     function menuToggle() {
-        const menu = document.querySelector('.menu');
-        const menuToggleBtn = document.querySelector('.menu-toggle');
-        menuToggleBtn?.addEventListener('click', () => {
-            const isMenuExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
-            menuToggleBtn.classList.toggle('is-active');
-            menuToggleBtn.setAttribute('aria-expanded', isMenuExpanded ? 'false' : 'true');
-            menuToggleBtn.setAttribute('aria-label', isMenuExpanded ? 'Open Menu' : 'Close Menu');
-            menu?.classList.toggle('is-visible');
+        const toggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        toggle?.addEventListener('click', () => {
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.classList.toggle('is-active');
+            toggle.setAttribute('aria-expanded', (!isExpanded).toString());
+            toggle.setAttribute('aria-label', isExpanded ? 'Open Menu' : 'Close Menu');
+            navLinks?.classList.toggle('is-visible');
         });
     }
+
     menuToggle();
     document.addEventListener('astro:after-swap', menuToggle);
 </script>

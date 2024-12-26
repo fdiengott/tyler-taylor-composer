@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import { slugify } from '../../utils/common-utils';
-import About from './About.astro';
+import About from '@/components/AboutComponent.astro';
 
 export async function getStaticPaths() {
     const bios = await getCollection('about');

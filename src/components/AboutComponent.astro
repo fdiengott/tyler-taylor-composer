@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import AboutNav from './AboutNav.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AboutNav from '@/components/AboutNav.astro';
 
 const { bio } = Astro.props;
 const { title, description, image } = bio.data;

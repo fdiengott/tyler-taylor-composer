@@ -1,6 +1,6 @@
 ---
 import { getEntry, render } from 'astro:content';
-import About from './About.astro';
+import About from '@/components/AboutComponent.astro';
 
 const bio = await getEntry('about', 'long-bio');
 const { Content } = await render(bio as any);

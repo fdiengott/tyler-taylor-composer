@@ -15,10 +15,6 @@ audio: https://soundcloud.com/tyler-w-taylor/modus-operandi
 2. Dust
 3. Broader than the original.
 
-- one
-- two
-- three
-
 ## Program Note:
 
 _Modus operandi_ is a piece whose procedures and musical materials are inspired by many of

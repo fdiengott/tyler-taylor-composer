@@ -5,27 +5,15 @@ const path = Astro.url.pathname;
 ---
 
 <ul class="bio-nav">
-    {
-        path !== '/about' && path !== '/about/long-bio' && (
-            <li>
-                <Pill href="/about">Long Bio</Pill>
-            </li>
-        )
-    }
-    {
-        path !== '/about/medium-bio' && (
-            <li class="medium-bio">
-                <Pill href="/about/medium-bio">Medium Bio</Pill>
-            </li>
-        )
-    }
-    {
-        path !== '/about/short-bio' && (
-            <li class="short-bio">
-                <Pill href="/about/short-bio">Short Bio</Pill>
-            </li>
-        )
-    }
+    <li class:list={{ hidden: path === '/about' || path === '/about/long-bio' }}>
+        <Pill href="/about">Long Bio</Pill>
+    </li>
+    <li class:list={['medium-bio', { hidden: path === '/about/medium-bio' }]}>
+        <Pill href="/about/medium-bio">Medium Bio</Pill>
+    </li>
+    <li class:list={['short-bio', { hidden: path === '/about/short-bio' }]}>
+        <Pill href="/about/short-bio">Short Bio</Pill>
+    </li>
     <li>
         <ExternalPill href="#">CV</ExternalPill>
     </li>
@@ -47,5 +35,9 @@ const path = Astro.url.pathname;
         .short-bio {
             display: block;
         }
+    }
+
+    .hidden {
+        display: none;
     }
 </style>

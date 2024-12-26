@@ -4,7 +4,6 @@ const { source, className } = Astro.props;
 import {
     IoCall,
     IoGlobeOutline,
-    IoLocation,
     IoLogoFacebook,
     IoLogoFoursquare,
     IoLogoInstagram,
@@ -23,7 +22,6 @@ import {
 } from 'react-icons/io5';
 
 const {
-    address,
     email,
     facebook,
     foursquare,
@@ -42,23 +40,16 @@ const {
     website,
     youtube,
 } = source;
+
+const size = '1.2rem';
 ---
 
 <ul class={'social-links ' + className}>
     {
-        facebook && (
-            <li class="inline-block">
-                <a aria-label="facebook" href={facebook} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoFacebook />
-                </a>
-            </li>
-        )
-    }
-    {
         twitter && (
             <li class="inline-block">
                 <a aria-label="twitter" href={twitter} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoTwitter />
+                    <IoLogoTwitter size={size} />
                 </a>
             </li>
         )
@@ -67,7 +58,7 @@ const {
         mastodon && (
             <li class="inline-block">
                 <a aria-label="mastodon" href={mastodon} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoMastodon />
+                    <IoLogoMastodon size={size} />
                 </a>
             </li>
         )
@@ -76,7 +67,7 @@ const {
         instagram && (
             <li class="inline-block">
                 <a aria-label="instagram" href={instagram} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoInstagram />
+                    <IoLogoInstagram size={size} />
                 </a>
             </li>
         )
@@ -85,7 +76,7 @@ const {
         youtube && (
             <li class="inline-block">
                 <a aria-label="youtube" href={youtube} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoYoutube />
+                    <IoLogoYoutube size={size} />
                 </a>
             </li>
         )
@@ -94,7 +85,7 @@ const {
         linkedin && (
             <li class="inline-block">
                 <a aria-label="linkedin" href={linkedin} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoLinkedin />
+                    <IoLogoLinkedin size={size} />
                 </a>
             </li>
         )
@@ -103,7 +94,7 @@ const {
         medium && (
             <li class="inline-block">
                 <a aria-label="medium" href={medium} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoMedium />
+                    <IoLogoMedium size={size} />
                 </a>
             </li>
         )
@@ -112,7 +103,7 @@ const {
         pinterest && (
             <li class="inline-block">
                 <a aria-label="pinterest" href={pinterest} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoPinterest />
+                    <IoLogoPinterest size={size} />
                 </a>
             </li>
         )
@@ -121,7 +112,7 @@ const {
         soundcloud && (
             <li class="inline-block">
                 <a aria-label="soundcloud" href={soundcloud} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoSoundcloud />
+                    <IoLogoSoundcloud size={size} />
                 </a>
             </li>
         )
@@ -130,7 +121,7 @@ const {
         tumblr && (
             <li class="inline-block">
                 <a aria-label="tumblr" href={tumblr} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoTumblr />
+                    <IoLogoTumblr size={size} />
                 </a>
             </li>
         )
@@ -139,7 +130,16 @@ const {
         reddit && (
             <li class="inline-block">
                 <a aria-label="reddit" href={reddit} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoReddit />
+                    <IoLogoReddit size={size} />
+                </a>
+            </li>
+        )
+    }
+    {
+        facebook && (
+            <li class="inline-block">
+                <a aria-label="facebook" href={facebook} target="_blank" rel="noopener noreferrer nofollow">
+                    <IoLogoFacebook size={size} />
                 </a>
             </li>
         )
@@ -148,7 +148,7 @@ const {
         vimeo && (
             <li class="inline-block">
                 <a aria-label="vimeo" href={vimeo} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoVimeo />
+                    <IoLogoVimeo size={size} />
                 </a>
             </li>
         )
@@ -157,7 +157,7 @@ const {
         tiktok && (
             <li class="inline-block">
                 <a aria-label="tiktok" href={tiktok} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoTiktok />
+                    <IoLogoTiktok size={size} />
                 </a>
             </li>
         )
@@ -166,7 +166,7 @@ const {
         foursquare && (
             <li class="inline-block">
                 <a aria-label="foursquare" href={foursquare} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoFoursquare />
+                    <IoLogoFoursquare size={size} />
                 </a>
             </li>
         )
@@ -175,7 +175,7 @@ const {
         website && (
             <li class="inline-block">
                 <a aria-label="website" href={website} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoGlobeOutline />
+                    <IoGlobeOutline size={size} />
                 </a>
             </li>
         )
@@ -184,7 +184,7 @@ const {
         email && (
             <li class="inline-block">
                 <a aria-label="email" href={`mailto:${email}`}>
-                    <IoMail />
+                    <IoMail size={size} />
                 </a>
             </li>
         )
@@ -193,16 +193,7 @@ const {
         phone && (
             <li class="inline-block">
                 <a aria-label="telephone" href={`tel:${phone}`}>
-                    <IoCall />
-                </a>
-            </li>
-        )
-    }
-    {
-        address && (
-            <li class="inline-block">
-                <a aria-label="location" href={address} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLocation />
+                    <IoCall size={size} />
                 </a>
             </li>
         )
@@ -214,5 +205,19 @@ const {
         display: flex;
         align-items: center;
         gap: 0.75rem;
+        width: fit-content;
+
+        nav & {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 768px) {
+        .social-links.social-links {
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: end; */
+        }
     }
 </style>

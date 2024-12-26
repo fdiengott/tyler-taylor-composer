@@ -24,13 +24,13 @@
     :root {
         --fs-200: clamp(0.7rem, calc(0.81rem + -0.13vw), 0.78rem);
         --fs-300: clamp(0.94rem, calc(0.94rem + 0vw), 0.94rem);
-        --fs-350: clamp(1rem, calc(1rem + 0.12vw), 1.1rem);
-        --fs-400: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
-        --fs-500: clamp(1.35rem, calc(1.24rem + 0.55vw), 1.67rem);
-        --fs-600: clamp(1.62rem, calc(1.41rem + 1.05vw), 2.22rem);
-        --fs-700: clamp(1.94rem, calc(1.59rem + 1.77vw), 2.96rem);
-        --fs-800: clamp(2.33rem, calc(1.77rem + 2.81vw), 3.95rem);
-        --fs-900: clamp(2.8rem, calc(1.94rem + 4.28vw), 5.26rem);
+        --fs-400: clamp(1rem, calc(1rem + 0.12vw), 1.1rem);
+        --fs-500: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+        --fs-600: clamp(1.35rem, calc(1.24rem + 0.55vw), 1.67rem);
+        --fs-700: clamp(1.62rem, calc(1.41rem + 1.05vw), 2.22rem);
+        --fs-800: clamp(1.94rem, calc(1.59rem + 1.77vw), 2.96rem);
+        --fs-900: clamp(2.33rem, calc(1.77rem + 2.81vw), 3.95rem);
+        --fs-1000: clamp(2.8rem, calc(1.94rem + 4.28vw), 5.26rem);
 
         --spacing-050: 0.125rem;
         --spacing-100: 0.25rem;
@@ -45,6 +45,14 @@
 
         --full-page-width: min(100%, 50rem);
         --full-page-padding: 1rem;
+
+        /*  TODO: update these to not rely on tailwind */
+        --ff-serif: Newsreader, ui-serif, Georgia, serif;
+        --ff-sans: Inter, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    }
+
+    body {
+        font-size: var(--fs-400);
     }
 
     a {
@@ -67,10 +75,12 @@
     }
 
     h3 {
+        font-size: var(--fs-600);
         font-weight: 600;
     }
 
     h4 {
+        font-size: var(--fs-500);
         font-weight: 500;
     }
 

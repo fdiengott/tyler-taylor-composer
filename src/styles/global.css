@@ -79,11 +79,15 @@
     h3,
     h4 {
         line-height: 1.4;
-        margin-block-end: 0.25em;
+        margin-block-end: 0.5em;
         text-wrap: balance;
     }
 
     ::selection {
         background-color: hsl(var(--color-accent-primary) / 0.2);
+    }
+
+    html {
+        scroll-padding-block-start: var(--floating-nav-height, 0);
     }
 }

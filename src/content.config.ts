@@ -14,7 +14,7 @@ const seoSchema = z.object({
 });
 
 const blog = defineCollection({
-    loader: glob({ pattern: '**/*.md', base: 'src/content/blog' }),
+    loader: glob({ pattern: '**/*.md', base: 'src/content/blogs' }),
     schema: z.object({
         title: z.string(),
         excerpt: z.string().optional(),
@@ -104,6 +104,20 @@ const hero = defineCollection({
     }),
 });
 
+const gallery = defineCollection({
+    loader: glob({ pattern: '**/*.md', base: 'src/content/gallery' }),
+    schema: z.object({
+        title: z.string(),
+        desciption: z.string().optional(),
+        images: z.array(
+            z.object({
+                src: z.string(),
+                alt: z.string(),
+            }),
+        ),
+    }),
+});
+
 export type WorkType = z.infer<typeof workSchema>;
 
-export const collections = { blog, pages, contact, about, works, press, news, hero };
+export const collections = { blog, pages, contact, about, works, press, news, hero, gallery };

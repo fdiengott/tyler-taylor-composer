@@ -7,6 +7,7 @@ premiere: 10/13/19
 category: Chamber
 instrumentation: Flute (dbl. picc.), Clarinet, Bassoon, Horn, Vibraphone, Piano, Violin, Cello
 audio: https://soundcloud.com/tyler-w-taylor/modus-operandi
+video: https://www.youtube.com/watch?v=kXxK34SqKBA&ab_channel=TylerTaylorComposer
 ---
 
 ## Movements:

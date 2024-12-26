@@ -52,7 +52,6 @@ const about = defineCollection({
     }),
 });
 
-// ASK which date fields are needed of date, year, premiere?
 const workSchema = z.object({
     template: z.boolean().default(false),
     title: z.string(),
@@ -64,8 +63,7 @@ const workSchema = z.object({
     ensemble: z.string(),
     instrumentation: z.string().or(z.array(z.string())).optional(),
     extraNotes: z.array(z.string()).optional(),
-    programNotes: z.string().optional(),
-    video: z.string().optional(),
+    video: z.string().or(z.array(z.string())).optional(),
     audio: z.string().optional(),
 });
 

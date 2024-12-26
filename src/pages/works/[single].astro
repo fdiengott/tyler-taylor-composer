@@ -26,13 +26,24 @@ export async function getStaticPaths() {
 }
 
 const { work } = Astro.props;
-const { audio, commissioner, ensemble, duration, premiere, title, video, instrumentation, extraNotes, programNotes } = work.data;
+const { audio, commissioner, duration, ensemble, extraNotes, instrumentation, premiere, title, video, year } = work.data;
 const { Content } = await render(work as any);
+
+const formattedPremiere =
+    typeof premiere === 'string' &&
+    new Date(premiere.trim().split(' ').at(0)).toLocaleDateString('en-US', {
+        month: 'numeric',
+        day: 'numeric',
+        year: '2-digit',
+    }) + ` ${premiere.trim().split(' ').slice(1).join(' ')}`;
 ---
 
 <BaseLayout title={title}>
     <div class="variable-provider">
-        <h1 class="title">{title}</h1>
+        <h1 class="title">
+            {title}
+            <span class="year">({year})</span>
+        </h1>
         <div class="page-wrapper">
             <section>
                 <div class="grid">
@@ -42,12 +53,17 @@ const { Content } = await render(work as any);
                         {instrumentation && <span>({instrumentation})</span>}
                     </div>
                     <div><b>Duration:</b> {duration} minutes</div>
-                    <div><b>Commissioned by:</b> {commissioner}</div>
-                    <div><b>Premiere:</b> {premiere}</div>
                     {
-                        programNotes && (
+                        commissioner && (
                             <div>
-                                <b>Program Notes:</b> <a href={programNotes}>Program notes</a>
+                                <b>Commissioned by:</b> {commissioner}
+                            </div>
+                        )
+                    }
+                    {
+                        premiere && (
+                            <div>
+                                <b>Premiered:</b> {formattedPremiere}
                             </div>
                         )
                     }
@@ -62,26 +78,30 @@ const { Content } = await render(work as any);
                     }
                 </div>
             </section>
-
-            <aside>
-                {audio && <SoundCloud client:visible url={audio} width="100%" style={{ maxWidth: '100vw', marginInline: 'auto' }} />}
-            </aside>
-            {video && <Youtube client:load url={video} title={title} width="100%" style={{ maxWidth: '100vw', marginInline: 'auto' }} />}
+            {
+                audio && (
+                    <aside>
+                        <SoundCloud client:visible url={audio} width="100%" style={{ maxWidth: '100vw', marginInline: 'auto' }} />
+                    </aside>
+                )
+            }
+            {
+                video &&
+                    (Array.isArray(video) ? video : [video]).map((vid) => (
+                        <Youtube client:load url={vid} title={title} width="100%" style={{ maxWidth: '100vw', marginInline: 'auto' }} />
+                    ))
+            }
         </div>
 
-        {
-            Content.length > 0 && (
-                <div class="content-wrapper">
-                    <Content />
-                </div>
-            )
-        }
+        <div class="content-wrapper">
+            <Content />
+        </div>
     </div>
 </BaseLayout>
 
 <style>
     .variable-provider {
-        --section-separator: 2rem;
+        --section-separator: 1.5rem;
         --list-separator: 0.25rem;
     }
     .title {
@@ -114,6 +134,12 @@ const { Content } = await render(work as any);
         border-block-start: 1px solid var(--color-border-primary);
         display: none;
 
+        h2,
+        h3,
+        h4 {
+            font-size: var(--fs-400);
+        }
+
         &:has(> *) {
             display: block;
         }
@@ -130,5 +156,10 @@ const { Content } = await render(work as any);
         margin-block-start: 1rem;
         display: grid;
         gap: var(--list-separator);
+    }
+
+    .year {
+        font-size: var(--fs-500);
+        font-weight: normal;
     }
 </style>

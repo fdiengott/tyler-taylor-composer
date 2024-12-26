@@ -1,0 +1,14 @@
+---
+import { RiExternalLinkLine } from 'react-icons/ri';
+
+const { className } = Astro.props;
+---
+
+<RiExternalLinkLine className={'link-icon ' + className} size="0.9em" />
+
+<style>
+    .link-icon {
+        display: inline-block;
+        margin-inline-start: 0.5rem;
+    }
+</style>

@@ -1,0 +1,10 @@
+---
+import Pill from '@/components/Pill.astro';
+import ExternalIcon from '@/components/ExternalIcon.astro';
+const { href } = Astro.props;
+---
+
+<Pill href={href}>
+    <slot />
+    <ExternalIcon />
+</Pill>

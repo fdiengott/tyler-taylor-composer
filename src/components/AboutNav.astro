@@ -1,5 +1,5 @@
 ---
-import ExternalLink from '@/components/ExternalLink.astro';
+import ExternalPill from '@/components/ExternalPill.astro';
 import Pill from '@/components/Pill.astro';
 const path = Astro.url.pathname;
 ---
@@ -26,7 +26,9 @@ const path = Astro.url.pathname;
             </li>
         )
     }
-    <li><ExternalLink linkUrl={'#'} title="CV" /></li>
+    <li>
+        <ExternalPill href="#">CV</ExternalPill>
+    </li>
 </ul>
 
 <style>

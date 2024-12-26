@@ -1,6 +1,6 @@
 ---
-title: About
-description: About me
+title: Long Bio
+description: Long Biography
 image: '/hero.jpeg'
 ---
 

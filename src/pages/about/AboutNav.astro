@@ -1,6 +1,49 @@
-<ul>
-    <li><a href="/about">Long Bio</a></li>
-    <li><a href="/about/medium-bio">Medium Bio</a></li>
-    <li><a href="/about/short-bio">Short Bio</a></li>
-    <li><a href="#">CV</a></li>
+---
+import ExternalLink from '@/components/ExternalLink.astro';
+import Pill from '@/components/Pill.astro';
+const path = Astro.url.pathname;
+---
+
+<ul class="bio-nav">
+    {
+        path !== '/about' && path !== '/about/long-bio' && (
+            <li>
+                <Pill href="/about">Long Bio</Pill>
+            </li>
+        )
+    }
+    {
+        path !== '/about/medium-bio' && (
+            <li class="medium-bio">
+                <Pill href="/about/medium-bio">Medium Bio</Pill>
+            </li>
+        )
+    }
+    {
+        path !== '/about/short-bio' && (
+            <li class="short-bio">
+                <Pill href="/about/short-bio">Short Bio</Pill>
+            </li>
+        )
+    }
+    <li><ExternalLink linkUrl={'#'} title="CV" /></li>
 </ul>
+
+<style>
+    .bio-nav {
+        display: flex;
+        gap: var(--spacing-200);
+    }
+
+    .medium-bio,
+    .short-bio {
+        display: none;
+    }
+
+    @media (min-width: 768px) {
+        .medium-bio,
+        .short-bio {
+            display: block;
+        }
+    }
+</style>

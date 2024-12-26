@@ -8,7 +8,10 @@ const { title, description, image } = bio.data;
 ---
 
 <BaseLayout title={title} description={description}>
-    <AboutNav />
+    <div class="about-header">
+        <h1>{title}</h1>
+        <AboutNav />
+    </div>
     <div class="about">
         {image && <Image src={image} alt="About" width={750} height={500} />}
         <slot />
@@ -18,5 +21,13 @@ const { title, description, image } = bio.data;
 <style is:global>
     .about :is(p, img) {
         margin-bottom: 1.5rem;
+    }
+</style>
+
+<style>
+    .about-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 </style>

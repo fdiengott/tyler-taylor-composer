@@ -1,6 +1,6 @@
 ---
 title: Medium Bio
-description: Biography of the author
+description: Medium Length Biography
 ---
 
 I'm tyler's medium bio

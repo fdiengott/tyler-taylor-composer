@@ -13,9 +13,10 @@ const quality = 80;
     <div class="masonry-container">
         <div class="masonry-grid">
             {
-                entry?.data.images.map((img: { src: string; alt: string; width: number; height: number }) => (
+                entry?.data.images.map((img) => (
                     <div class="masonry-item">
                         <Image
+                            data-src={img.src?.src?.match(/src.+\?/)}
                             src={img.src}
                             alt={img.alt}
                             class="masonry-image"

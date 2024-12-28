@@ -108,11 +108,13 @@ const gallery = defineCollection({
     loader: glob({ pattern: '**/*.md', base: 'src/content/gallery' }),
     schema: z.object({
         title: z.string(),
-        desciption: z.string().optional(),
+        description: z.string().optional(),
         images: z.array(
             z.object({
                 src: z.string(),
                 alt: z.string(),
+                width: z.number(),
+                height: z.number(),
             }),
         ),
     }),

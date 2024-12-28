@@ -2,7 +2,7 @@
 title: Tyler Taylor
 subtitle: Composer | Perfomer
 image:
-  src: /hero.jpeg
+  src: '../../assets/hero.jpg'
   alt: Tyler Taylor
 linkUrl: https://www.tylertaylor.dev
 ---

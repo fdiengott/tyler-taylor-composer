@@ -39,17 +39,17 @@ const contact = defineCollection({
     schema: z.object({
         title: z.string(),
         description: z.string(),
-        image: z.string().optional(),
     }),
 });
 
 const about = defineCollection({
     loader: glob({ pattern: '**/*.md', base: 'src/content/about' }),
-    schema: z.object({
-        title: z.string(),
-        description: z.string(),
-        image: z.string().optional(),
-    }),
+    schema: ({ image }) =>
+        z.object({
+            title: z.string(),
+            description: z.string(),
+            image: image().optional(),
+        }),
 });
 
 const workSchema = z.object({
@@ -83,25 +83,27 @@ const press = defineCollection({
 
 const news = defineCollection({
     loader: glob({ pattern: '**/*.md', base: 'src/content/news' }),
-    schema: z.object({
-        title: z.string(),
-        date: z.coerce.date(),
-        image: z.string().optional(),
-        linkUrl: z.string(),
-    }),
+    schema: ({ image }) =>
+        z.object({
+            title: z.string(),
+            date: z.coerce.date(),
+            image: image().optional(),
+            linkUrl: z.string(),
+        }),
 });
 
 const hero = defineCollection({
     loader: glob({ pattern: '**/*.md', base: 'src/content/hero' }),
-    schema: z.object({
-        title: z.string(),
-        subtitle: z.string().optional(),
-        image: z.object({
-            src: z.string(),
-            alt: z.string(),
+    schema: ({ image }) =>
+        z.object({
+            title: z.string(),
+            subtitle: z.string().optional(),
+            image: z.object({
+                src: image(),
+                alt: z.string(),
+            }),
+            linkUrl: z.string().optional(),
         }),
-        linkUrl: z.string().optional(),
-    }),
 });
 
 const gallery = defineCollection({

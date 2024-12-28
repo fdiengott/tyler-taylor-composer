@@ -2,8 +2,12 @@
 title: Template
 description: Image gallery for Tyler Taylor
 images:
-  - src: /dante-preview.jpg
+  - src: '../../assets/gallery1.jpeg'
     alt: Template
-  - src: /dante-preview.jpg
+    width: 200
+    height: 300
+  - src: '../../assets/gallery1.jpeg'
     alt: Template
+    width: 200
+    height: 300
 ---

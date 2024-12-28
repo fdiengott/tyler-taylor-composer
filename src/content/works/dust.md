@@ -6,9 +6,7 @@ year: 2021
 commissioner: The Bowdoin International Music Festival
 premiere: 7/11/21
 category: Chamber
-video:
-  - https://www.youtube.com/watch?v=kXxK34SqKBA&ab_channel=TylerTaylorComposer
-  - https://www.youtube.com/watch?v=HvzRq7beR58&ab_channel=TylerTaylorComposer
+video: https://www.youtube.com/watch?v=HvzRq7beR58&ab_channel=TylerTaylorComposer
 ---
 
 ## Program Notes:

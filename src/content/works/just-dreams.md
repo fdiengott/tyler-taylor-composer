@@ -7,9 +7,7 @@ commissioner: The National Orchestra Institute & Festival/American Composers Orc
 premiere: 6/25/21
 category: Chamber
 instrumentation: Flute, English Horn, Bass Cl., Vibraphone, Solo Strings
-video:
-  - https://www.youtube.com/watch?v=dQAakB9IPVY
-  - https://www.youtube.com/watch?v=x7xDv0ww7LM
+video: https://www.youtube.com/watch?v=dQAakB9IPVY
 ---
 
 ## Program Notes:

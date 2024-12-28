@@ -106,16 +106,19 @@ const hero = defineCollection({
 
 const gallery = defineCollection({
     loader: glob({ pattern: '**/*.md', base: 'src/content/gallery' }),
-    schema: z.object({
-        title: z.string(),
-        desciption: z.string().optional(),
-        images: z.array(
-            z.object({
-                src: z.string(),
-                alt: z.string(),
-            }),
-        ),
-    }),
+    schema: ({ image }) =>
+        z.object({
+            title: z.string(),
+            description: z.string().optional(),
+            images: z.array(
+                z.object({
+                    src: image(),
+                    alt: z.string(),
+                    width: z.number(),
+                    height: z.number(),
+                }),
+            ),
+        }),
 });
 
 export type WorkType = z.infer<typeof workSchema>;

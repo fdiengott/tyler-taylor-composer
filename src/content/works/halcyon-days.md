@@ -9,3 +9,7 @@ instrumentation: Picc.; Flute 1, 2; Oboe 1, 2; English Horn; Eb cl.; Bb Cl. 1, 2
 extraNotes:
   - 'Read by the Eastman Wind Orchestra with soloist Gabriel Pique: 3/23/16'
 ---
+
+## Program Notes:
+
+Remembrance of the ‘halcyon days’ may involve not only the pleasant associations of nostalgia, but also the melancholy that comes with accepting that they have passed.This composition profiles this conflict, dealing first with yearning and sentimentality and then an aggressive reaction of railing against the reality of the situation.

@@ -142,6 +142,7 @@ const formattedPremiere =
         h3,
         h4 {
             font-size: var(--fs-400);
+            margin-block-end: var(--spacing-250);
         }
 
         em {
@@ -153,12 +154,12 @@ const formattedPremiere =
             margin-block-end: var(--spacing-300);
 
             & > li {
-                margin-inline-start: 1.25rem;
+                margin-inline-start: var(--spacing-400);
             }
         }
 
         ol > li {
-            list-style-type: inside;
+            list-style-type: upper-roman;
         }
         ul > li {
             list-style-type: disc;

@@ -35,3 +35,7 @@ _Italic text_
 ```
 
 For more details see [GitHub Markdown docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+
+### Custom notes
+
+On the individual works details pages, note that I have made it so that if you do a numbered list (e.g. 1. 2. etc.), then it will render on the screen with roman numerals. If it shouldn't be that way I'll have to go in and change it.

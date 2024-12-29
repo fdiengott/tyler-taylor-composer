@@ -27,8 +27,8 @@ const siteConfig: SiteConfig = {
     subtitle: 'Composer, performer',
     description: 'Tyler Taylor, composer',
     image: {
+        src: '../assets/hero.jpg',
         //  TODO:
-        src: '/dante-preview.jpg',
         alt: '',
     },
     headerNavLinks: [

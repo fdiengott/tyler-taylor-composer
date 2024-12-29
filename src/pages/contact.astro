@@ -12,9 +12,63 @@ const contact = entry?.data;
     </section>
 
     <section class="section pt-0">
-        <dl class="grid">
-            <dt></dt>
-            <dd></dd>
-        </dl>
+        <div class="bg-image">
+            <dl class="details-grid">
+                <dt>Email</dt>
+                <dd>tylertaylorcomposer@gmail.com</dd>
+                <dt>key 2</dt>
+                <dd>value 2</dd>
+            </dl>
+        </div>
     </section>
 </BaseLayout>
+
+<style>
+    .bg-image {
+        --_padding: var(--spacing-400);
+        --_margin-inline: var(--spacing-400);
+
+        background-image: url('../assets/contact-page-background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+        width: calc(100% + var(--_margin-inline) * 2);
+        margin-inline: calc(-1 * var(--_margin-inline));
+        min-height: 30rem;
+        padding-block: var(--_padding);
+        backdrop-filter: blur(2rem);
+    }
+
+    .details-grid {
+        display: flex;
+        flex-direction: column;
+
+        background: hsl(0 0 9 / 0.5);
+        backdrop-filter: blur(0.2rem);
+        width: fit-content;
+        max-width: 100%;
+        padding: var(--spacing-400);
+        margin-inline: var(--spacing-200);
+        border-radius: var(--spacing-150);
+    }
+
+    dd:not(:last-child) {
+        margin-block-end: var(--spacing-300);
+    }
+
+    @media (min-width: 768px) {
+        .details-grid {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 1rem 2rem;
+
+            margin-inline: var(--spacing-300);
+        }
+
+        dd:not(:last-child) {
+            margin-block-end: 0;
+        }
+    }
+</style>

@@ -1,7 +1,7 @@
 ---
 title: Long Bio
 description: Long Biography
-image: '/hero.jpeg'
+image: '../../assets/about-1.jpg'
 ---
 
 Tyler Taylor (1992) is a composer-performer and teaching artist from Louisville, KY. Much of his work is dedicated to creating abstract musical analogies for social-political happenings both present and past. Common among these pieces is a sense of contradiction – sometimes whimsical, sometimes alarming – that comes from the interaction of diverse musical layers.

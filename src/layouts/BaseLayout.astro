@@ -37,7 +37,15 @@ const head = Astro.props;
         padding-inline: var(--full-page-padding);
     }
 
-    p ~ p {
+    :not(blockquote) > p ~ p {
         margin-top: 1rem;
+    }
+
+    blockquote {
+        background: var(--color-bg-muted);
+        margin-block: var(--spacing-200);
+        padding-block: var(--spacing-200);
+        padding-inline-start: var(--spacing-400);
+        border-radius: var(--spacing-200);
     }
 </style>

@@ -5,17 +5,26 @@
 @layer base {
     /*  INFO: all colors are in HSL */
     :root {
-        --color-text-primary: hsl(0 0 9);
+        --black: hsl(0 0 9);
+        --white: hsl(50 19 94);
+        --bg-primary-light: hsl(50 19 94);
+        --bg-primary-dark: hsl(0 0 9);
+    }
+
+    :root {
+        --color-text-primary: var(--black);
         --color-text-secondary: hsl(50 19 94);
-        --color-bg-primary: hsl(50 19 94);
+        --color-bg-primary: var(--bg-primary-light);
+        --color-bg-secondary: var(--bg-primary-dark);
         --color-bg-muted: hsl(53 18 90);
         --color-border-primary: hsl(0 0 9);
         --color-accent-primary: hsl(337 66 34);
     }
     html.dark {
-        --color-text-primary: hsl(50 19 94);
+        --color-text-primary: var(--white);
         --color-text-secondary: hsl(0 0 9);
-        --color-bg-primary: hsl(0 0 9);
+        --color-bg-primary: var(--bg-primary-dark);
+        --color-bg-secondary: var(--bg-primary-light);
         --color-bg-muted: hsl(0 0 14);
         --color-border-primary: hsl(50 19 94);
         --color-accent-primary: hsl(44 40 69);
@@ -43,6 +52,7 @@
         --spacing-500: 3.5rem;
         --spacing-600: 5rem;
         --spacing-700: 7rem;
+        --spacing-800: 10rem;
 
         --full-page-width: min(100%, 50rem);
         --full-page-padding: 1rem;
@@ -99,6 +109,6 @@
     }
 
     html {
-        scroll-padding-block-start: var(--floating-nav-height, 0);
+        scroll-padding-block-start: calc(var(--floating-nav-height, 0) + var(--spacing-250));
     }
 }

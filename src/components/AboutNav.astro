@@ -1,23 +1,37 @@
 ---
 import ExternalPill from '@/components/ExternalPill.astro';
 import Pill from '@/components/Pill.astro';
-const path = Astro.url.pathname;
 ---
 
 <ul class="bio-nav">
-    <li class:list={{ hidden: path === '/about' || path === '/about/long-bio' }}>
+    <li>
         <Pill href="/about">Long Bio</Pill>
     </li>
-    <li class:list={['medium-bio', { hidden: path === '/about/medium-bio' }]}>
+    <li class="medium-bio">
         <Pill href="/about/medium-bio">Medium Bio</Pill>
     </li>
-    <li class:list={['short-bio', { hidden: path === '/about/short-bio' }]}>
+    <li class="short-bio">
         <Pill href="/about/short-bio">Short Bio</Pill>
     </li>
     <li>
         <ExternalPill href="#">CV</ExternalPill>
     </li>
 </ul>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const navLinks: HTMLAnchorElement[] = Array.from(document.querySelectorAll('.bio-nav a'));
+        navLinks.forEach((link) => {
+            const cleanHref = link.href?.match(/\/about.*/)?.[0];
+
+            if (cleanHref === window.location.pathname) {
+                link?.parentElement?.classList.add('hidden');
+            } else {
+                link?.parentElement?.classList.remove('hidden');
+            }
+        });
+    });
+</script>
 
 <style>
     .bio-nav {

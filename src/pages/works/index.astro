@@ -81,12 +81,12 @@ const worksByCategory = cleanWorks.reduce<Record<string, WorkType[]>>((acc, work
 
     .category-list {
         display: grid;
-        gap: var(--spacing-600);
+        gap: var(--spacing-500);
     }
 
     .works-list {
         display: grid;
-        gap: var(--spacing-400);
+        gap: var(--spacing-300);
     }
 
     .category-title {
@@ -95,7 +95,7 @@ const worksByCategory = cleanWorks.reduce<Record<string, WorkType[]>>((acc, work
 
     @media (min-width: 768px) {
         .works-list {
-            gap: var(--spacing-500);
+            gap: var(--spacing-600);
         }
     }
 </style>

@@ -102,7 +102,7 @@ const linksWithContent = navLinks.filter((link) => {
     .nav-right {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: var(--spacing-300);
     }
 
     .site-title {
@@ -139,7 +139,8 @@ const linksWithContent = navLinks.filter((link) => {
             left: 1rem;
             background: var(--color-bg-primary);
             border: 1px dashed var(--color-border-primary);
-            padding: 2rem;
+            padding: var(--spacing-300);
+            min-width: var(--spacing-800);
             visibility: hidden;
             opacity: 0;
             transform: translateY(-10px);
@@ -205,6 +206,10 @@ const linksWithContent = navLinks.filter((link) => {
         .menu-toggle.is-active .menu-icon::after {
             transform: translateX(-50%) rotate(-45deg);
             bottom: 0;
+        }
+
+        .nav-right {
+            gap: var(--spacing-200);
         }
     }
 </style>

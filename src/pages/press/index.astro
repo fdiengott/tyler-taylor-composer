@@ -1,0 +1,50 @@
+---
+import type { Page } from 'astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { removeTemplates } from '@/utils/data-utils';
+import Card from '@/components/Card.astro';
+import ExternalLink from '@/components/ExternalLink.astro';
+import Pagination from '@/components/Pagination.astro';
+import siteConfig from '@/config/site-config';
+
+const pressPieces = await getCollection('press');
+const cleanPressPieces = removeTemplates(pressPieces);
+const totalPages = Math.ceil(cleanPressPieces.length / siteConfig.pressPerPage || 4);
+
+const page: Pick<Page, 'data' | 'url' | 'currentPage' | 'lastPage'> = {
+    data: cleanPressPieces.slice(0, siteConfig.pressPerPage || 4),
+    url: {
+        prev: undefined,
+        next: '/press/2',
+        first: '/press/1',
+        last: `/press/${totalPages}`,
+        current: '/press/1',
+    },
+    currentPage: 1,
+    lastPage: totalPages,
+};
+---
+
+<BaseLayout title="Works" description="My works">
+    <h1>Press</h1>
+    <ul>
+        {
+            cleanPressPieces.map((piece) => (
+                <Card>
+                    <ExternalLink linkUrl={piece.data.linkUrl} title={piece.data.linkText} />
+                    <p>{piece.data.publication}</p>
+                </Card>
+            ))
+        }
+    </ul>
+    <Pagination page={page} />
+</BaseLayout>
+
+<style>
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+</style>

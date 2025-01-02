@@ -3,10 +3,10 @@ import ArrowLeft from '../icons/ArrowLeft.astro';
 import ArrowRight from '../icons/ArrowRight.astro';
 import IconButton from './IconButton.astro';
 
-const { page, class: className } = Astro.props;
+const { page } = Astro.props;
 ---
 
-<nav aria-label="Pagination" class:list={['px-12 py-2 relative text-center', className]}>
+<nav aria-label="Pagination" class="px-12 py-2 relative text-center my-16 sm:my-24">
     {
         page.url.prev && (
             <IconButton

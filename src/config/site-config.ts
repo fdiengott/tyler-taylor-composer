@@ -19,6 +19,7 @@ export type SiteConfig = {
     footerNavLinks?: Link[];
     socialLinks?: Link[];
     newsPerPage?: number;
+    pressPerPage?: number;
     worksPerPage?: number;
 };
 
@@ -61,25 +62,9 @@ const siteConfig: SiteConfig = {
             href: '/contact',
         },
     ],
-    footerNavLinks: [
-        {
-            text: 'About',
-            href: '/about',
-        },
-        {
-            text: 'Works',
-            href: '/works',
-        },
-        {
-            text: 'Press',
-            href: '/press',
-        },
-        {
-            text: 'Contact',
-            href: '/contact',
-        },
-    ],
+    footerNavLinks: [],
     newsPerPage: 8,
+    pressPerPage: 8,
     worksPerPage: 8,
 };
 

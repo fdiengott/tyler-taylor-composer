@@ -1,5 +1,5 @@
 ---
-linkText: The Louisville Orchestra Announces Inaugural Creator Corps
-linkUrl: https://www.leoweekly.com/2022/07/the-louisville-orchestra-announces-inaugural-creator-corps/
-publication: LEO Weekly
+linkText: 2023 Copland House Residency Awards
+linkUrl: http://www.coplandhouse.org/media/Copland-House-Residency-Awards-2023-release.pdf
+publication: Elizabeth Dworkin
 ---

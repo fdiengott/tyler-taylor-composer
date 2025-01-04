@@ -1,4 +1,5 @@
 ---
+import SocialLink from '@/components/SocialLink.astro';
 const { source, className } = Astro.props;
 
 import {
@@ -40,164 +41,26 @@ const {
     website,
     youtube,
 } = source;
-
-const size = '1.2rem';
 ---
 
 <ul class={'social-links ' + className}>
-    {
-        twitter && (
-            <li class="inline-block">
-                <a aria-label="twitter" href={twitter} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoTwitter size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        mastodon && (
-            <li class="inline-block">
-                <a aria-label="mastodon" href={mastodon} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoMastodon size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        instagram && (
-            <li class="inline-block">
-                <a aria-label="instagram" href={instagram} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoInstagram size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        youtube && (
-            <li class="inline-block">
-                <a aria-label="youtube" href={youtube} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoYoutube size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        linkedin && (
-            <li class="inline-block">
-                <a aria-label="linkedin" href={linkedin} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoLinkedin size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        medium && (
-            <li class="inline-block">
-                <a aria-label="medium" href={medium} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoMedium size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        pinterest && (
-            <li class="inline-block">
-                <a aria-label="pinterest" href={pinterest} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoPinterest size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        soundcloud && (
-            <li class="inline-block">
-                <a aria-label="soundcloud" href={soundcloud} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoSoundcloud size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        tumblr && (
-            <li class="inline-block">
-                <a aria-label="tumblr" href={tumblr} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoTumblr size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        reddit && (
-            <li class="inline-block">
-                <a aria-label="reddit" href={reddit} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoReddit size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        facebook && (
-            <li class="inline-block">
-                <a aria-label="facebook" href={facebook} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoFacebook size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        vimeo && (
-            <li class="inline-block">
-                <a aria-label="vimeo" href={vimeo} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoVimeo size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        tiktok && (
-            <li class="inline-block">
-                <a aria-label="tiktok" href={tiktok} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoTiktok size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        foursquare && (
-            <li class="inline-block">
-                <a aria-label="foursquare" href={foursquare} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoLogoFoursquare size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        website && (
-            <li class="inline-block">
-                <a aria-label="website" href={website} target="_blank" rel="noopener noreferrer nofollow">
-                    <IoGlobeOutline size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        email && (
-            <li class="inline-block">
-                <a aria-label="email" href={`mailto:${email}`}>
-                    <IoMail size={size} />
-                </a>
-            </li>
-        )
-    }
-    {
-        phone && (
-            <li class="inline-block">
-                <a aria-label="telephone" href={`tel:${phone}`}>
-                    <IoCall size={size} />
-                </a>
-            </li>
-        )
-    }
+    <SocialLink ariaLabel="twitter" href={twitter} icon={IoLogoTwitter} />
+    <SocialLink ariaLabel="mastodon" href={mastodon} icon={IoLogoMastodon} />
+    <SocialLink ariaLabel="instagram" href={instagram} icon={IoLogoInstagram} />
+    <SocialLink ariaLabel="youtube" href={youtube} icon={IoLogoYoutube} />
+    <SocialLink ariaLabel="linkedin" href={linkedin} icon={IoLogoLinkedin} />
+    <SocialLink ariaLabel="medium" href={medium} icon={IoLogoMedium} />
+    <SocialLink ariaLabel="pinterest" href={pinterest} icon={IoLogoPinterest} />
+    <SocialLink ariaLabel="soundcloud" href={soundcloud} icon={IoLogoSoundcloud} />
+    <SocialLink ariaLabel="tumblr" href={tumblr} icon={IoLogoTumblr} />
+    <SocialLink ariaLabel="reddit" href={reddit} icon={IoLogoReddit} />
+    <SocialLink ariaLabel="facebook" href={facebook} icon={IoLogoFacebook} />
+    <SocialLink ariaLabel="vimeo" href={vimeo} icon={IoLogoVimeo} />
+    <SocialLink ariaLabel="tiktok" href={tiktok} icon={IoLogoTiktok} />
+    <SocialLink ariaLabel="foursquare" href={foursquare} icon={IoLogoFoursquare} />
+    <SocialLink ariaLabel="website" href={website} icon={IoGlobeOutline} />
+    <SocialLink ariaLabel="email" href={email && `mailto:${email}`} icon={IoMail} />
+    <SocialLink ariaLabel="telephone" href={phone && `tel:${phone}`} icon={IoCall} />
 </ul>
 
 <style>

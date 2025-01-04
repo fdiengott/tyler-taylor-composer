@@ -26,7 +26,7 @@ const linksWithContent = navLinks.filter((link) => {
 ---
 
 <div class="nav-height"></div>
-<nav class="site-nav">
+<div class="site-nav">
     <div class="nav-container">
         <div class="nav-main">
             <div class="nav-left">
@@ -45,7 +45,7 @@ const linksWithContent = navLinks.filter((link) => {
             </div>
         </div>
 
-        <div class="nav-links">
+        <nav class="nav-links">
             <ul id="menu-items" class="menu">
                 {
                     linksWithContent.map((link) => (
@@ -55,9 +55,9 @@ const linksWithContent = navLinks.filter((link) => {
                     ))
                 }
             </ul>
-        </div>
+        </nav>
     </div>
-</nav>
+</div>
 
 <style>
     :root {

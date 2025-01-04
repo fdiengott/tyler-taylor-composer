@@ -1,0 +1,13 @@
+---
+const { href, ariaLabel, icon: Icon } = Astro.props;
+---
+
+{
+    href && (
+        <li class="inline-block">
+            <a aria-label={ariaLabel} href={href} target="_blank" rel="noopener noreferrer nofollow">
+                <Icon size="1.2rem" />
+            </a>
+        </li>
+    )
+}

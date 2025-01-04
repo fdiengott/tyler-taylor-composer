@@ -59,3 +59,7 @@ export const sortWorksByDate = (workA: CollectionEntry<'works'>, workB: Collecti
 
     return 0;
 };
+
+export const sortByFileName = (a: CollectionEntry<'press'>, b: CollectionEntry<'press'>) => {
+    return a.id < b.id ? 1 : -1;
+};

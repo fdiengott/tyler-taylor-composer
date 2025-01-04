@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import NavLink from './NavLink.astro';
 import ThemeToggle from './ThemeToggle.astro';
 import Social from '@/components/Social.astro';
-import siteConfig from '../data/site-config';
+import siteConfig from '@/config/site-config';
 import social from '@/config/social.json';
 
 const navLinks = siteConfig.headerNavLinks || [];
@@ -26,14 +26,14 @@ const linksWithContent = navLinks.filter((link) => {
 ---
 
 <div class="nav-height"></div>
-<nav class="site-nav">
+<div class="site-nav">
     <div class="nav-container">
         <div class="nav-main">
             <div class="nav-left">
                 <button class="menu-toggle" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items">
                     <span class="menu-icon"></span>
                 </button>
-                <a class="site-title" href="/">
+                <a class="site-title" href="/" tabindex="1">
                     <b>Tyler Taylor</b>
                     <span>Composer</span>
                 </a>
@@ -45,7 +45,7 @@ const linksWithContent = navLinks.filter((link) => {
             </div>
         </div>
 
-        <div class="nav-links">
+        <nav class="nav-links">
             <ul id="menu-items" class="menu">
                 {
                     linksWithContent.map((link) => (
@@ -55,9 +55,9 @@ const linksWithContent = navLinks.filter((link) => {
                     ))
                 }
             </ul>
-        </div>
+        </nav>
     </div>
-</nav>
+</div>
 
 <style>
     :root {

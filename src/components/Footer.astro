@@ -1,8 +1,6 @@
 ---
-import siteConfig from '../data/site-config';
-import Social from '@/components/Social.astro';
+import siteConfig from '@/config/site-config';
 
-import social from '@/config/social.json';
 const socialLinks = siteConfig.socialLinks || [];
 const navLinks = siteConfig.footerNavLinks || [];
 ---
@@ -25,7 +23,6 @@ const navLinks = siteConfig.footerNavLinks || [];
             { 'sm:flex-row-reverse sm:justify-between sm:items-center': socialLinks.length > 0 },
         ]}
     >
-        <Social source={social} />
         <p class="text-sm">
             &copy; {new Date().getFullYear()}&nbsp;{siteConfig.title}. All rights reserved.
         </p>

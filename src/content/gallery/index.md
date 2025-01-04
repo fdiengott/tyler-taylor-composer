@@ -10,10 +10,6 @@ images:
     alt: image 5
     width: 360
     height: 540
-  - src: '../../assets/gallery1.jpeg'
-    alt: image 1
-    width: 360
-    height: 270
   - src: '../../assets/gallery2.jpg'
     alt: image 2
     width: 360

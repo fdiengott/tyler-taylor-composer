@@ -1,6 +1,6 @@
 <div>
     <input id="theme-toggle" type="checkbox" />
-    <label for="theme-toggle">Theme Toggle</label>
+    <label for="theme-toggle" tabindex="0">Theme Toggle</label>
 </div>
 
 <script>
@@ -30,8 +30,20 @@
             const isDark = element.classList.contains('dark');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         };
+        const handleKeyEnterToggle = (e: KeyboardEvent) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const toggle = document.getElementById('theme-toggle') as HTMLInputElement;
+
+                if (!toggle || toggle?.checked === undefined) return;
+
+                toggle.checked = !toggle.checked;
+
+                handleToggleClick();
+            }
+        };
 
         document.getElementById('theme-toggle')?.addEventListener('input', handleToggleClick);
+        (document.querySelector('#theme-toggle + label') as HTMLLabelElement)?.addEventListener('keydown', handleKeyEnterToggle);
     });
 </script>
 

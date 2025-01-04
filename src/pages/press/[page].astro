@@ -1,0 +1,43 @@
+---
+import type { GetStaticPathsOptions, Page } from 'astro';
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { removeTemplates, sortByFileName } from '@/utils/data-utils';
+import Card from '@/components/Card.astro';
+import ExternalLink from '@/components/ExternalLink.astro';
+import Pagination from '@/components/Pagination.astro';
+import siteConfig from '@/config/site-config';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const pressPieces = removeTemplates(await getCollection('press')).sort(sortByFileName);
+
+    return paginate(pressPieces, { pageSize: siteConfig.pressPerPage || 4 });
+}
+
+type Props = { page: Page<CollectionEntry<'press'>> };
+
+const { page } = Astro.props;
+---
+
+<BaseLayout title="Works" description="My works">
+    <h1>Press</h1>
+    <ul>
+        {
+            page.data.map((piece) => (
+                <Card>
+                    <ExternalLink linkUrl={piece.data.linkUrl} title={piece.data.linkText} />
+                    <p>{piece.data.publication}</p>
+                </Card>
+            ))
+        }
+    </ul>
+    <Pagination page={page} />
+</BaseLayout>
+
+<style>
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+</style>

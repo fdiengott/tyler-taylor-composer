@@ -84,18 +84,18 @@ const worksByCategory = cleanWorks.reduce<Record<string, WorkType[]>>((acc, work
         gap: var(--spacing-500);
     }
 
+    .category-title {
+        text-transform: capitalize;
+    }
+
     .works-list {
         display: grid;
         gap: var(--spacing-300);
     }
 
-    .category-title {
-        text-transform: capitalize;
-    }
-
     @media (min-width: 768px) {
         .works-list {
-            gap: var(--spacing-600);
+            gap: var(--spacing-500);
         }
     }
 </style>

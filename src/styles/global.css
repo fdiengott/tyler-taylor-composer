@@ -104,10 +104,6 @@
         text-wrap: balance;
     }
 
-    ::selection {
-        background-color: hsl(var(--color-accent-primary) / 0.2);
-    }
-
     html {
         scroll-padding-block-start: calc(var(--floating-nav-height, 0) + var(--spacing-250));
     }

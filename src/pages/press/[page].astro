@@ -2,14 +2,14 @@
 import type { GetStaticPathsOptions, Page } from 'astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { removeTemplates } from '@/utils/data-utils';
+import { removeTemplates, sortByFileName } from '@/utils/data-utils';
 import Card from '@/components/Card.astro';
 import ExternalLink from '@/components/ExternalLink.astro';
 import Pagination from '@/components/Pagination.astro';
 import siteConfig from '@/config/site-config';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-    const pressPieces = removeTemplates(await getCollection('press'));
+    const pressPieces = removeTemplates(await getCollection('press')).sort(sortByFileName);
 
     return paginate(pressPieces, { pageSize: siteConfig.pressPerPage || 4 });
 }

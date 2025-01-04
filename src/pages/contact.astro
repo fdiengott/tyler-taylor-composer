@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getEntry } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 
 const entry = await getEntry('contact', 'index');
 const contact = entry?.data;
+
+const { Content } = await render(entry);
 ---
 
 <BaseLayout title={contact?.title} description={contact?.description}>
@@ -13,12 +15,13 @@ const contact = entry?.data;
 
     <section class="section pt-0">
         <div class="bg-image">
-            <dl class="details-grid">
-                <dt>Email</dt>
-                <dd>tylertaylorcomposer@gmail.com</dd>
-                <dt>key 2</dt>
-                <dd>value 2</dd>
-            </dl>
+            <div class="text-wrapper">
+                <Content />
+                <dl class="details-grid">
+                    <dt>Email</dt>
+                    <dd>tylertaylorcomposer@gmail.com</dd>
+                </dl>
+            </div>
         </div>
     </section>
 </BaseLayout>
@@ -28,47 +31,51 @@ const contact = entry?.data;
         --_padding: var(--spacing-400);
         --_margin-inline: var(--spacing-400);
 
-        background-image: url('../assets/contact-page-background.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 100%;
-        width: 100%;
+        position: relative;
+
         width: calc(100% + var(--_margin-inline) * 2);
-        margin-inline: calc(-1 * var(--_margin-inline));
         min-height: 30rem;
+        margin-inline: calc(-1 * var(--_margin-inline));
         padding-block: var(--_padding);
-        backdrop-filter: blur(2rem);
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('../assets/contact-page-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.8);
+        }
+    }
+
+    .text-wrapper {
+        display: grid;
+        gap: var(--spacing-300);
+        width: fit-content;
+
+        background: hsl(0 50 100 / 0.5);
+        backdrop-filter: blur(0.2rem);
+        color: var(--black);
+        z-index: 1;
+
+        border-radius: var(--spacing-200);
+        padding: var(--spacing-400);
+        margin-inline: var(--spacing-200);
     }
 
     .details-grid {
         display: flex;
         flex-direction: column;
-
-        background: hsl(0 0 9 / 0.5);
-        backdrop-filter: blur(0.2rem);
-        width: fit-content;
         max-width: 100%;
-        padding: var(--spacing-400);
-        margin-inline: var(--spacing-200);
-        border-radius: var(--spacing-150);
-    }
-
-    dd:not(:last-child) {
-        margin-block-end: var(--spacing-300);
     }
 
     @media (min-width: 768px) {
         .details-grid {
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: auto 1fr;
             gap: 1rem 2rem;
-
-            margin-inline: var(--spacing-300);
-        }
-
-        dd:not(:last-child) {
-            margin-block-end: 0;
         }
     }
 </style>

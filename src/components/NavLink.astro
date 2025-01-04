@@ -9,7 +9,7 @@ const { pathname } = Astro.url;
 const isActive = !!href && pathname.includes(href as string);
 ---
 
-<a class:list={[className, { 'is-active': isActive }]} href={href} {...props}>
+<a class:list={[className, { 'is-active': isActive }]} href={href} tabindex="2" {...props}>
     <slot />
 </a>
 

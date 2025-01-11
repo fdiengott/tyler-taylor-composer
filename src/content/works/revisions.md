@@ -7,6 +7,7 @@ commissioner: The Louisville Orchestra for “Classics” concert series
 premiere: 3/10/23
 category: Orchestral
 instrumentation: (3 [3 = picc.], 3 [3 = EH], 3 [2 dbl. Eb cl., 3 = bs. cl.], 3 [3 = contra] - 4 sax. [1 = alto, dbl. sop., 2 = Alto., 3 = Ten., 4 = Bari.] - 4, 3 [3 dbl. Flugelhorn], 3 [3 = bs. tbn.], 1 - timp., 4 perc., hp., pno. - strings)
+audio: https://soundcloud.com/locreatorscorps/sets/tyler-taylor-2022-23
 ---
 
 ## Program Notes:

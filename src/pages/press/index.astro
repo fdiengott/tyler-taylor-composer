@@ -13,7 +13,7 @@ const pressPieces = await getCollection('press');
 const cleanPressPieces = removeTemplates(pressPieces);
 const totalPages = Math.ceil(cleanPressPieces.length / (siteConfig?.pressPerPage || 4));
 
-const pressOnFirstPage = cleanPressPieces.slice(0, siteConfig.pressPerPage || 4).sort(sortByFileName);
+const pressOnFirstPage = cleanPressPieces.sort(sortByFileName).slice(0, siteConfig.pressPerPage || 4);
 
 const page: Pick<Page, 'data' | 'url' | 'currentPage' | 'lastPage'> = {
     data: pressOnFirstPage,

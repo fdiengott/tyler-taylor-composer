@@ -1,10 +1,16 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 import Pill from '@/components/Pill.astro';
 import ExternalIcon from '@/components/ExternalIcon.astro';
-const { href } = Astro.props;
+
+interface Props extends Omit<HTMLAttributes<'a'>, 'href'> {
+    href: string;
+}
+
+const { href, ...anchorAttrs } = Astro.props;
 ---
 
-<Pill href={href}>
+<Pill href={href} {...anchorAttrs}>
     <slot />
     <ExternalIcon />
 </Pill>

@@ -4,7 +4,5 @@ subtitle: Composer | Perfomer
 image:
   src: '../../assets/hero.jpg'
   alt: Tyler Taylor
-linkUrl: https://www.tylertaylor.dev
+linkUrl: ''
 ---
-
-A short phrase maybe?

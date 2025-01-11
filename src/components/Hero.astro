@@ -7,7 +7,7 @@ const { title, subtitle, image, linkUrl } = entry?.data ?? {};
 const { Content } = await render(entry as any);
 ---
 
-<section>
+<section id="hero">
     <div class="title-wrapper">
         {title && <h1 class="title">{title}</h1>}
         {subtitle && <p class="subtitle">{subtitle}</p>}
@@ -15,7 +15,7 @@ const { Content } = await render(entry as any);
     <figure>
         {image && <Image class="w-full" src={image.src} loading="eager" decoding="async" alt={image.alt || ''} height="576" width="768" />}
     </figure>
-    <div class="max-w-none prose prose-dante sm:prose-lg">
+    <div class="max-w-none prose prose-dante sm:prose-lg content-wrapper">
         <Content />
         {
             linkUrl && (
@@ -27,19 +27,29 @@ const { Content } = await render(entry as any);
     </div>
 </section>
 
-<style>
-    figure {
-        margin-block: var(--spacing-200) var(--spacing-400);
-    }
+<style is:global>
+    #hero {
+        figure {
+            margin-block: var(--spacing-200) var(--spacing-400);
+        }
 
-    .title-wrapper {
-        margin-block-end: var(--spacing-200);
-    }
+        .title-wrapper {
+            margin-block-end: var(--spacing-200);
+        }
 
-    .title {
-        font-family: Newsreader, ui-serif, Georgia, serif;
-        line-height: 1.2;
-        font-weight: 500;
-        margin: 0;
+        .title {
+            font-family: Newsreader, ui-serif, Georgia, serif;
+            line-height: 1.2;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* if there is Content, read more will be visible */
+        .content-wrapper a {
+            display: none;
+        }
+        .content-wrapper > p ~ a {
+            display: inline;
+        }
     }
 </style>

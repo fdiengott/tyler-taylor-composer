@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import WorkCard from './WorkCard.astro';
+import { removeTemplates, sortWorksByDate } from '@/utils/data-utils';
+import { slugify } from '@/utils/common-utils';
+
+const rawWorks = await getCollection('works');
+const cleanWorks = removeTemplates(rawWorks);
+const sortedWorks = cleanWorks.sort(sortWorksByDate);
+const latestWork = sortedWorks.at(0);
+---
+
+<section>
+    <h2 class="title">Latest work</h2>
+    <WorkCard title={latestWork?.data.title} year={latestWork?.data.year} slug={`/works/${slugify(latestWork?.id)}`} ensemble={latestWork?.data.ensemble} />
+</section>
+
+<style>
+    .title {
+        font-style: italic;
+    }
+</style>

@@ -9,20 +9,14 @@ interface Props {
 const { title, year, slug, ensemble } = Astro.props;
 ---
 
-<li>
-    <div class="first-line">
-        <a class="title" href={slug}>{title}</a>
-        <span class="for">for</span>
-        <div class="ensemble">{ensemble}</div>
-        <div class="year">({year})</div>
-    </div>
-</li>
+<div class="first-line">
+    <a class="title" href={slug}>{title}</a>
+    <span class="for">for</span>
+    <div class="ensemble">{ensemble}</div>
+    <div class="year">({year})</div>
+</div>
 
 <style>
-    li {
-        margin-inline-start: var(--spacing-200);
-    }
-
     .first-line {
         display: flex;
         align-items: baseline;

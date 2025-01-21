@@ -1,10 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import { getEntry, render } from 'astro:content';
+import { getEntry } from 'astro:content';
+import PressLatest from '@/components/PressLatest.astro';
+import WorkLatest from '@/components/WorkLatest.astro';
 
 const entry = await getEntry('hero', 'index');
-const { title, subtitle, image, linkUrl } = entry?.data ?? {};
-const { Content } = await render(entry as any);
+const { title, subtitle, image } = entry?.data ?? {};
 ---
 
 <section id="hero">
@@ -16,40 +17,29 @@ const { Content } = await render(entry as any);
         {image && <Image class="w-full" src={image.src} loading="eager" decoding="async" alt={image.alt || ''} height="576" width="768" />}
     </figure>
     <div class="max-w-none prose prose-dante sm:prose-lg content-wrapper">
-        <Content />
-        {
-            linkUrl && (
-                <a href={linkUrl} class="mt-8 text-center">
-                    Read More
-                </a>
-            )
-        }
+        <PressLatest />
+        <WorkLatest />
     </div>
 </section>
 
 <style is:global>
-    #hero {
-        figure {
-            margin-block: var(--spacing-200) var(--spacing-400);
-        }
+    figure {
+        margin-block: var(--spacing-200) var(--spacing-400);
+    }
 
-        .title-wrapper {
-            margin-block-end: var(--spacing-200);
-        }
+    .title-wrapper {
+        margin-block-end: var(--spacing-200);
+    }
 
-        .title {
-            font-family: Newsreader, ui-serif, Georgia, serif;
-            line-height: 1.2;
-            font-weight: 500;
-            margin: 0;
-        }
+    .title {
+        font-family: Newsreader, ui-serif, Georgia, serif;
+        line-height: 1.2;
+        font-weight: 500;
+        margin: 0;
+    }
 
-        /* if there is Content, read more will be visible */
-        .content-wrapper a {
-            display: none;
-        }
-        .content-wrapper > p ~ a {
-            display: inline;
-        }
+    .content-wrapper {
+        display: grid;
+        gap: var(--spacing-400);
     }
 </style>

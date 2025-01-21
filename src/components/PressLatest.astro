@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import PressPreview from '@/components/PressPreview.astro';
+import { removeTemplates } from '@/utils/data-utils';
+import { sortByFileName } from '@/utils/data-utils';
+
+const pressPieces = await getCollection('press');
+const cleanPressPieces = removeTemplates(pressPieces);
+const sortedPressPieces = cleanPressPieces.sort(sortByFileName);
+const firstPressPiece = sortedPressPieces.at(0);
+---
+
+<section>
+    <h2 class="title">Recent press</h2>
+    <PressPreview press={firstPressPiece} />
+</section>
+
+<style>
+    .title {
+        font-style: italic;
+    }
+</style>

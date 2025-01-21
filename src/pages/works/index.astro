@@ -51,7 +51,9 @@ const worksByCategory = cleanWorks.reduce<Record<string, WorkType[]>>((acc, work
                     </h2>
                     <ul class="works-list">
                         {worksByCategory[category].map((work) => (
-                            <WorkCard {...work.data} slug={`/works/${slugify(work.data.title)}`} />
+                            <li class="work-list-item">
+                                <WorkCard {...work.data} slug={`/works/${slugify(work.data.title)}`} />
+                            </li>
                         ))}
                     </ul>
                 </li>
@@ -86,6 +88,10 @@ const worksByCategory = cleanWorks.reduce<Record<string, WorkType[]>>((acc, work
 
     .category-title {
         text-transform: capitalize;
+    }
+
+    .work-list-item {
+        margin-inline-start: var(--spacing-200);
     }
 
     .works-list {

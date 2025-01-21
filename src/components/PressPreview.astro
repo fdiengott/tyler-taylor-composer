@@ -1,0 +1,21 @@
+---
+import { render } from 'astro:content';
+
+const { press } = Astro.props;
+const { linkText, linkUrl, publication } = press?.data;
+const { Content } = await render(press);
+---
+
+<article class="press-preview">
+    <a class="link" href={linkUrl} target="_blank" rel="noopener noreferrer">
+        {linkText}
+    </a>
+    <p>{publication}</p>
+    <Content />
+</article>
+
+<style>
+    .press-preview p {
+        margin: 0;
+    }
+</style>

@@ -6,6 +6,7 @@ year: 2018
 commissioner: Cole Bartels
 premiere: 2/25/19
 category: Chamber
+video: https://www.youtube.com/watch?v=95ZE3r4smfE
 ---
 
 ## Program Notes:

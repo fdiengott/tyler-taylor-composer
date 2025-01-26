@@ -5,6 +5,7 @@ duration: 8
 year: 2021
 premiere: 8/1/2021
 category: Solo
+video: https://www.youtube.com/watch?v=KW2Cq6prHAQ
 ---
 
 ## Program Notes:

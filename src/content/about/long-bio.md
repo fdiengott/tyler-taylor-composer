@@ -1,5 +1,5 @@
 ---
-title: Long Bio
+title: Bio
 description: Long Biography
 image: '../../assets/about-1.jpg'
 ---

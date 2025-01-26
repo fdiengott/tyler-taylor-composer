@@ -102,7 +102,6 @@ const hero = defineCollection({
                 src: image(),
                 alt: z.string(),
             }),
-            linkUrl: z.string().optional(),
         }),
 });
 

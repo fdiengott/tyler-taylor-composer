@@ -17,10 +17,6 @@ const { Content } = await render(entry);
         <div class="bg-image">
             <div class="text-wrapper">
                 <Content />
-                <dl class="details-grid">
-                    <dt>Email</dt>
-                    <dd>tylertaylorcomposer@gmail.com</dd>
-                </dl>
             </div>
         </div>
     </section>
@@ -64,18 +60,10 @@ const { Content } = await render(entry);
         padding: var(--spacing-400);
         margin-inline: var(--spacing-200);
     }
-
-    .details-grid {
-        display: flex;
-        flex-direction: column;
-        max-width: 100%;
-    }
-
-    @media (min-width: 768px) {
-        .details-grid {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 1rem 2rem;
+    .text-wrapper :global(a) {
+        color: var(--color-accent-light);
+        &:hover {
+            color: hsl(from var(--color-accent-light) h s 50);
         }
     }
 </style>

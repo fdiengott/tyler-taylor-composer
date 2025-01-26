@@ -5,6 +5,7 @@ duration: 6
 year: 2013
 premiere: 4/02/14
 category: Solo
+video: https://www.youtube.com/watch?v=zP-nAPlBeCk
 ---
 
 ## Program Notes:

@@ -1,5 +1,5 @@
 ---
-title: Quintet
+title: Quintet for Brass
 ensemble: Brass
 duration: 7.5
 year: 2011

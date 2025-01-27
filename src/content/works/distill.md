@@ -6,7 +6,8 @@ year: 2021
 premiere: 9/23/21
 commissioner: The Indiana University New Music Ensemble
 category: Mixed Ensemble
-instrumentation: (1 dbl. picc., 1 dbl. EH., 1 dbl Eb., 1 -1 alto sax. - 1, 1, 1, 1 - 2 perc., hp., pno. - solo strings)
+instrumentation: 1 dbl. picc., 1 dbl. EH., 1 dbl Eb., 1 -1 alto sax. - 1, 1, 1, 1 - 2 perc., hp., pno. - solo strings
+video: https://www.youtube.com/watch?v=aexN4H_cbJk
 extraNotes:
   - 2020 New Music Ensemble Commission Winner
 ---

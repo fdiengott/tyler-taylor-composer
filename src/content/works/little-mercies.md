@@ -7,6 +7,7 @@ commissioner: Jon P. Cherry for the closing reception of the Louisville Photo Bi
 premiere: 11/10/23
 category: Chamber
 audio: https://soundcloud.com/tyler-w-taylor/little-mercies-for-spatial-string-quartet-2023
+video: https://www.youtube.com/watch?v=stwxpjJTn9I
 ---
 
 ## Program Notes:

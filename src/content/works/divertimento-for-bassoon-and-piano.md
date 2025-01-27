@@ -1,5 +1,5 @@
 ---
-title: Divertimento
+title: Divertimento for Bassoon and Piano
 ensemble: Bassoon and Piano
 duration: 11
 year: 2011

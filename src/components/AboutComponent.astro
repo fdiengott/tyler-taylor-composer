@@ -14,7 +14,7 @@ const { title, description, image } = bio.data;
         <AboutNav />
     </div>
     <div class="about">
-        {image && <Image src={image} alt="About" width={750} height={750} {...optimizedImageProps} />}
+        {image && <Image src={image} alt="About" class="about-img" width={315} height={315} {...optimizedImageProps} />}
         <slot />
     </div>
 </BaseLayout>
@@ -31,5 +31,17 @@ const { title, description, image } = bio.data;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
+    }
+
+    .about-img {
+        float: left;
+        margin-inline-end: 1.5rem;
+        margin-block-end: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+        .about-img {
+            margin-block-end: 0;
+        }
     }
 </style>

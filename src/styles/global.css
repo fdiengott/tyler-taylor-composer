@@ -9,6 +9,8 @@
         --white: hsl(50 19 94);
         --bg-primary-light: hsl(50 19 94);
         --bg-primary-dark: hsl(0 0 9);
+        --color-accent-light: hsl(337 66 34);
+        --color-accent-dark: hsl(44 40 69);
     }
 
     :root {
@@ -18,7 +20,7 @@
         --color-bg-secondary: var(--bg-primary-dark);
         --color-bg-muted: hsl(53 18 90);
         --color-border-primary: hsl(0 0 9);
-        --color-accent-primary: hsl(337 66 34);
+        --color-accent-primary: var(--color-accent-light);
     }
     html.dark {
         --color-text-primary: var(--white);
@@ -27,7 +29,7 @@
         --color-bg-secondary: var(--bg-primary-light);
         --color-bg-muted: hsl(0 0 14);
         --color-border-primary: hsl(50 19 94);
-        --color-accent-primary: hsl(44 40 69);
+        --color-accent-primary: var(--color-accent-dark);
     }
 
     :root {

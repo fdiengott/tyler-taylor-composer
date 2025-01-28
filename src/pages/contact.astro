@@ -24,15 +24,9 @@ const { Content } = await render(entry);
 
 <style>
     .bg-image {
-        --_padding: var(--spacing-400);
-        --_margin-inline: var(--spacing-400);
-
         position: relative;
-
-        width: calc(100% + var(--_margin-inline) * 2);
         min-height: 30rem;
-        margin-inline: calc(-1 * var(--_margin-inline));
-        padding-block: var(--_padding);
+        padding-block: var(--spacing-400);
 
         &::before {
             content: '';

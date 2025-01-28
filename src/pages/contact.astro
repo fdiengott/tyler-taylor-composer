@@ -51,7 +51,7 @@ const { Content } = await render(entry);
         gap: var(--spacing-300);
         width: fit-content;
 
-        background: hsl(0 50 100 / 0.5);
+        background: hsl(0, 50%, 100%, 50%);
         backdrop-filter: blur(0.2rem);
         color: var(--black);
         z-index: 1;
@@ -63,7 +63,7 @@ const { Content } = await render(entry);
     .text-wrapper :global(a) {
         color: var(--color-accent-light);
         &:hover {
-            color: hsl(from var(--color-accent-light) h s 50);
+            color: hsl(from var(--color-accent-light) h s 50%);
         }
     }
 </style>

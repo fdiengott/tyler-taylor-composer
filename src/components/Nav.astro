@@ -76,7 +76,12 @@ const linksWithContent = navLinks.filter((link) => {
         right: 0;
         z-index: 100;
         background: var(--color-bg-primary);
-        border-bottom: 1px solid hsl(from var(--color-border-primary) h s 40);
+    }
+
+    @supports (color: hsl(from var(--color-border-primary) h s 40%)) {
+        .site-nav {
+            border-bottom: 1px solid hsl(from var(--color-border-primary) h s 40%);
+        }
     }
 
     .nav-container {

@@ -24,15 +24,9 @@ const { Content } = await render(entry);
 
 <style>
     .bg-image {
-        --_padding: var(--spacing-400);
-        --_margin-inline: var(--spacing-400);
-
         position: relative;
-
-        width: calc(100% + var(--_margin-inline) * 2);
         min-height: 30rem;
-        margin-inline: calc(-1 * var(--_margin-inline));
-        padding-block: var(--_padding);
+        padding-block: var(--spacing-400);
 
         &::before {
             content: '';
@@ -51,7 +45,7 @@ const { Content } = await render(entry);
         gap: var(--spacing-300);
         width: fit-content;
 
-        background: hsl(0 50 100 / 0.5);
+        background: hsl(0, 50%, 100%, 50%);
         backdrop-filter: blur(0.2rem);
         color: var(--black);
         z-index: 1;
@@ -63,7 +57,7 @@ const { Content } = await render(entry);
     .text-wrapper :global(a) {
         color: var(--color-accent-light);
         &:hover {
-            color: hsl(from var(--color-accent-light) h s 50);
+            color: hsl(from var(--color-accent-light) h s 50%);
         }
     }
 </style>

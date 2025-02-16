@@ -77,7 +77,9 @@ const entry = await getEntry('gallery', 'index');
         .masonry-item.active {
             position: absolute;
             inset-inline: 3rem;
+            margin-inline: auto;
             inset-block-start: 8rem;
+            max-width: var(--full-page-width);
         }
     }
 </style>

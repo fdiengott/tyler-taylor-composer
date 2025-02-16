@@ -46,16 +46,20 @@ const siteConfig: SiteConfig = {
             href: '/news',
         },
         {
-            text: 'Gallery',
-            href: '/gallery',
-        },
-        {
             text: 'Press',
             href: '/press',
         },
         {
             text: 'Blog',
             href: '/blog',
+        },
+        {
+            text: 'News',
+            href: '/news',
+        },
+        {
+            text: 'Gallery',
+            href: '/gallery',
         },
         {
             text: 'Contact',

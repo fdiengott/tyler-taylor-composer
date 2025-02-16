@@ -27,11 +27,6 @@ const siteConfig: SiteConfig = {
     title: 'Tyler Taylor',
     subtitle: 'Composer, performer',
     description: 'Tyler Taylor, composer',
-    image: {
-        src: '../assets/hero.jpg',
-        //  TODO:
-        alt: '',
-    },
     headerNavLinks: [
         {
             text: 'About',
@@ -46,16 +41,20 @@ const siteConfig: SiteConfig = {
             href: '/news',
         },
         {
-            text: 'Gallery',
-            href: '/gallery',
-        },
-        {
             text: 'Press',
             href: '/press',
         },
         {
             text: 'Blog',
             href: '/blog',
+        },
+        {
+            text: 'News',
+            href: '/news',
+        },
+        {
+            text: 'Gallery',
+            href: '/gallery',
         },
         {
             text: 'Contact',

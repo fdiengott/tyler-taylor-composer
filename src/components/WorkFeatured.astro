@@ -1,0 +1,25 @@
+---
+import { getEntry } from 'astro:content';
+import WorkCard from './WorkCard.astro';
+import { slugify } from '@/utils/common-utils';
+
+const heroContent = await getEntry('hero', 'index');
+const featuredWorkId = heroContent?.data.featuredWorkId;
+const featuredWork = await getEntry('works', featuredWorkId);
+---
+
+<section>
+    <h2 class="title">Featured work</h2>
+    <WorkCard
+        title={featuredWork?.data.title}
+        year={featuredWork?.data.year}
+        slug={`/works/${slugify(featuredWork?.id)}`}
+        ensemble={featuredWork?.data.ensemble}
+    />
+</section>
+
+<style>
+    .title {
+        font-style: italic;
+    }
+</style>

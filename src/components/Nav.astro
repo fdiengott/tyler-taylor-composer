@@ -9,15 +9,11 @@ import social from '@/config/social.json';
 const navLinks = siteConfig.headerNavLinks || [];
 const blogs = await getCollection('blog');
 const gallery = await getCollection('gallery');
-const news = await getCollection('news');
 const linksWithContent = navLinks.filter((link) => {
     if (blogs.length <= 1 && link.href === '/blog') {
         return false;
     }
     if (gallery.length <= 1 && link.href === '/gallery') {
-        return false;
-    }
-    if (news.length <= 1 && link.href === '/news') {
         return false;
     }
 

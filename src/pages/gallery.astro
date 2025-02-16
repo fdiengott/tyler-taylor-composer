@@ -11,8 +11,8 @@ const entry = await getEntry('gallery', 'index');
     <div class="masonry-container">
         <div class="masonry-grid">
             {
-                entry?.data.images.map((img) => (
-                    <div class="masonry-item">
+                entry?.data.images.map((img, idx) => (
+                    <div class="masonry-item" data-idx={idx}>
                         <Image
                             data-src={img.src?.src?.match(/src.+\?/)}
                             src={img.src}
@@ -29,6 +29,20 @@ const entry = await getEntry('gallery', 'index');
     </div>
 </BaseLayout>
 
+<script>
+    const masonryItems = document.querySelectorAll('.masonry-item');
+
+    masonryItems.forEach((item) => {
+        item.addEventListener('click', (e) => {
+            masonryItems.forEach((item) => {
+                if (item.dataset.idx === e.target.parentElement.dataset.idx) return;
+                item.classList.remove('active');
+            });
+            e.target?.parentElement?.classList?.toggle('active');
+        });
+    });
+</script>
+
 <style>
     .masonry-container {
         padding: 1rem;
@@ -44,6 +58,7 @@ const entry = await getEntry('gallery', 'index');
     .masonry-item {
         break-inside: avoid;
         margin-bottom: 1rem;
+        transition: all 0.3s ease-in-out;
     }
 
     .masonry-image {
@@ -57,6 +72,14 @@ const entry = await getEntry('gallery', 'index');
     @media (min-width: 640px) {
         .masonry-grid {
             columns: 2;
+        }
+
+        .masonry-item.active {
+            position: absolute;
+            inset-inline: 3rem;
+            margin-inline: auto;
+            inset-block-start: 8rem;
+            max-width: var(--full-page-width);
         }
     }
 </style>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="News" description="Latest news from Tyler Taylor">
+    <div class="banner">
+        The best way to keep up with any news, events, or developments is to follow me on either Facebook or Instagram at @TylerTaylorComposer.
+    </div>
+    <div class="fb-wrapper">
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v21.0"></script>
+
+        <div
+            class="fb-page"
+            data-href="https://www.facebook.com/TylerTaylorComposer"
+            data-tabs="timeline"
+            data-width="500"
+            data-height="800"
+            data-small-header="true"
+            data-adapt-container-width="true"
+            data-hide-cover="false"
+            data-show-facepile="false"
+        >
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .banner {
+        margin-bottom: 2rem;
+    }
+
+    .fb-wrapper {
+        display: flex;
+        place-content: center;
+    }
+</style>

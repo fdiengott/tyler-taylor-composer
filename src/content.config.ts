@@ -102,6 +102,7 @@ const hero = defineCollection({
                 src: image(),
                 alt: z.string(),
             }),
+            featuredWorkId: z.string(),
         }),
 });
 

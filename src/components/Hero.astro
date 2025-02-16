@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
 import PressLatest from '@/components/PressLatest.astro';
-import WorkLatest from '@/components/WorkLatest.astro';
+import WorkFeatured from '@/components/WorkFeatured.astro';
 
 const entry = await getEntry('hero', 'index');
 const { title, subtitle, image } = entry?.data ?? {};
@@ -18,7 +18,7 @@ const { title, subtitle, image } = entry?.data ?? {};
     </figure>
     <div class="max-w-none prose prose-dante sm:prose-lg content-wrapper">
         <PressLatest />
-        <WorkLatest />
+        <WorkFeatured />
     </div>
 </section>
 

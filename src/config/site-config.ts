@@ -37,10 +37,6 @@ const siteConfig: SiteConfig = {
             href: '/works',
         },
         {
-            text: 'News',
-            href: '/news',
-        },
-        {
             text: 'Press',
             href: '/press',
         },

@@ -1,7 +1,9 @@
 ---
 title: Bio
 description: Long Biography
-image: '../../assets/about-1.jpeg'
+image:
+  src: '../../assets/about-1.jpeg'
+  alt: 'Portrait of Tyler Taylor taken by Matthew Washburn'
 ---
 
 Tyler Taylor (1992) is a composer-performer and teaching artist from Louisville, KY. Described as possessing a "mastery of tone and timbre” (Daniel Bartholomew-Poyser) and as "original in concept and realization” (Edwin Outwater), his work explores creating abstract musical analogies for social-political happenings both present and past. Common among these pieces is a sense of contradiction – sometimes whimsical, sometimes alarming – that comes from the interaction of diverse musical layers.

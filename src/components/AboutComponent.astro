@@ -14,7 +14,7 @@ const { title, description, image } = bio.data;
         <AboutNav />
     </div>
     <div class="about">
-        {image && <Image src={image} alt="About" class="about-img" width={315} height={315} {...optimizedImageProps} />}
+        {image && <Image src={image.src} alt={image.alt ?? 'Photo of Tyler Taylor'} class="about-img" width={315} height={315} {...optimizedImageProps} />}
         <slot />
     </div>
 </BaseLayout>

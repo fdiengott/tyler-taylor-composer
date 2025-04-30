@@ -48,7 +48,12 @@ const about = defineCollection({
         z.object({
             title: z.string(),
             description: z.string(),
-            image: image().optional(),
+            image: z
+                .object({
+                    src: image(),
+                    alt: z.string().optional(),
+                })
+                .optional(),
         }),
 });
 

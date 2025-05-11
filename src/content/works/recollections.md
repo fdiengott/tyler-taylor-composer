@@ -6,6 +6,7 @@ year: 2024
 commissioner: consortium led by by Davis Hale
 premiere: 1/11/25
 category: Chamber
+video: https://youtu.be/TO6gZ2M59h0?si=nDRnm7R00I9XIhjB
 ---
 
 ## Program Notes:

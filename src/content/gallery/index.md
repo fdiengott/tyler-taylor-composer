@@ -2,6 +2,14 @@
 title: Gallery
 description: Image gallery for Tyler Taylor
 images:
+  - src: '../../assets/gallery6.jpeg'
+    alt: image 6
+    width: 360
+    height: 270
+  - src: '../../assets/gallery7.jpeg'
+    alt: image 6
+    width: 360
+    height: 270
   - src: '../../assets/gallery3.jpg'
     alt: image 3
     width: 360

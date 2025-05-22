@@ -10,7 +10,10 @@ const { title, subtitle, image } = entry?.data ?? {};
 
 <section id="hero">
     <div class="title-wrapper">
-        {title && <h1 class="title">{title}</h1>}
+        <div class="title-wrapper__inner">
+            {title && <h1 class="title">{title}</h1>}
+            <a href="https://h37806.wixsite.com/taylor-sadberry" target="_blank">Join the Taylor-Sadberry Consortium</a>
+        </div>
         {subtitle && <p class="subtitle">{subtitle}</p>}
     </div>
     <figure>
@@ -29,6 +32,16 @@ const { title, subtitle, image } = entry?.data ?? {};
 
     .title-wrapper {
         margin-block-end: var(--spacing-200);
+    }
+
+    .title-wrapper__inner {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+
+        a {
+            text-align: right;
+        }
     }
 
     .title {

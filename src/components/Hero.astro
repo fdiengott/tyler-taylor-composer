@@ -37,7 +37,11 @@ const { title, subtitle, image } = entry?.data ?? {};
     .title-wrapper__inner {
         display: flex;
         align-items: baseline;
-        gap: var(--spacing-300);
+        justify-content: space-between;
+
+        a {
+            text-align: right;
+        }
     }
 
     .title {

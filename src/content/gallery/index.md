@@ -2,6 +2,10 @@
 title: Gallery
 description: Image gallery for Tyler Taylor
 images:
+  - src: '../../assets/gallery8.jpeg'
+    alt: Tyler, sitting at a desk with a big smile on his face, a mug of coffee on the table, and a white piano in the background.
+    width: 360
+    height: 640
   - src: '../../assets/gallery6.jpeg'
     alt: Photograph of Tyler, smiling, with short, curly hair, circular glasses and a goatee. He's wearing a gray cardigan over a maroon button up shirt, sitting on a bench in front of some foliage.
     width: 360

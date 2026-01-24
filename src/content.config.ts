@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { CATEOGORIES } from './constants/constants';
 
 const seoSchema = z.object({
     title: z.string().min(5).max(120).optional(),
@@ -60,7 +61,7 @@ const about = defineCollection({
 const workSchema = z.object({
     template: z.boolean().default(false),
     title: z.string(),
-    category: z.string(),
+    category: z.enum([CATEOGORIES]).or(z.string()),
     premiere: z.string().optional(),
     duration: z.number().or(z.string()),
     year: z.number(),
@@ -129,5 +130,7 @@ const gallery = defineCollection({
 });
 
 export type WorkType = z.infer<typeof workSchema>;
+
+export type CollectionType<T> = T & { id: string };
 
 export const collections = { blog, pages, contact, about, works, press, news, hero, gallery };

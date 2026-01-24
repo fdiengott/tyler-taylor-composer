@@ -25,7 +25,7 @@ export function getPostsByTag(posts: CollectionEntry<'blog'>[], tagSlug: string)
 }
 
 export const removeTemplates = <T extends { id: string }>(collection: T[]): T[] => {
-    return collection.filter((item) => !item.id.startsWith('-'));
+    return collection.filter((item) => !item.id.startsWith('-')) as T[];
 };
 
 export const sortWorksByDate = (workA: CollectionEntry<'works'>, workB: CollectionEntry<'works'>) => {

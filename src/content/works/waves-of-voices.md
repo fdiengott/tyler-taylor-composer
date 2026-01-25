@@ -4,7 +4,7 @@ ensemble: Concerto for Flute and Orchestra
 year: 2025
 instrumentation: '[2 (2=Picc.), 2 (2=E.H.), 2 (2= Bass. Cl.), 2(2 dbl. Contra)], [4, 2 (2 dbl. flugelhorn), 2 (2=Bs. Tbn), 1], Timp., 2 Percussion, Harp, Pno., Strings'
 category: Orchestral
-duration: 19
+duration: 22
 ---
 
 ## Program Notes:

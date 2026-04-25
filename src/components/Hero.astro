@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
 import PressLatest from '@/components/PressLatest.astro';
 import WorkFeatured from '@/components/WorkFeatured.astro';
+import { optimizedImageProps } from '@/constants/images';
 
 const entry = await getEntry('hero', 'index');
 const { title, subtitle, image } = entry?.data ?? {};
@@ -16,7 +17,21 @@ const { title, subtitle, image } = entry?.data ?? {};
         {subtitle && <p class="subtitle">{subtitle}</p>}
     </div>
     <figure>
-        {image && <Image class="w-full" src={image.src} loading="eager" decoding="async" alt={image.alt || ''} height="576" width="768" />}
+        {
+            image && (
+                <Image
+                    class="w-full"
+                    data-src={image.src?.src?.match(/src.+\?/)}
+                    src={image.src}
+                    loading="eager"
+                    decoding="async"
+                    alt={image.alt || ''}
+                    height="576"
+                    width="768"
+                    {...optimizedImageProps}
+                />
+            )
+        }
     </figure>
     <div class="max-w-none prose prose-dante sm:prose-lg content-wrapper">
         <PressLatest />

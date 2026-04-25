@@ -1,5 +1,5 @@
 ---
-linkText: 'Cleveland Orchestra with pianist Garrick Ohlsson at Severance (Oct. 30)'
-linkUrl: https://clevelandclassical.com/cleveland-orchestra-with-pianist-garrick-ohlsson-at-severance-oct-30/
+linkText: 'From surprise email to center stage: Tyler Taylor joins Cleveland Orchestra as composer fellow'
+linkUrl: https://www.cleveland.com/entertainment/2025/10/from-surprise-email-to-center-stage-tyler-taylor-joins-cleveland-orchestra-as-composer-fellow.html
 publication: Cleveland Classical
 ---
